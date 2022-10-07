@@ -1,3 +1,5 @@
+package algorithm;
+
 public class WoowaBrothers2 {
  
     /**
