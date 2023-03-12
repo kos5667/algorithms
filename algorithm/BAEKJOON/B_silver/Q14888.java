@@ -42,7 +42,8 @@ public class Q14888 {
 			MIN = Math.min(MIN, num);
 			return;
 		}
- 
+
+		// Commit Test
 		for (int i = 0; i < 4; i++) {
 			// 연산자 개수가 1개 이상인 경우
 			if (operator[i] > 0) {
