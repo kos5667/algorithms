@@ -9,8 +9,30 @@ public class Q14888 {
 	/**
 	 * @since 2023-03-28
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		Scanner scan = new Scanner(System.in);
+		int N = scan.nextInt();
+		int O = N - 1;
 
+		List<Integer> seq = new ArrayList<Integer>();
+		List<Integer> ope = new ArrayList<Integer>();
+
+		// 수열 입력
+//		for (int i=0; i<N; i++) seq.add(scan.nextInt());
+
+		// 연산자 입력
+		for (int i=0; i<4; i++) ope.add(scan.nextInt());
+
+		if (O != ope.stream().mapToInt(Integer::intValue).sum())
+			throw new Exception("연산자의 수는 N-1 입니다. 입력한 수 : "+ope.stream().mapToInt(Integer::intValue).sum());
+
+
+	}
+
+	// + - × ÷
+	// 0 0 0 0
+	public int func() {
+		return 0;
 	}
 
 //    public static int MAX = Integer.MIN_VALUE;	// 최댓값
