@@ -23,7 +23,7 @@ public class Q2504 {
         for (String c : temp.split("")) stk.push(c);
 
         for (String c : stk)
-            System.out.println(c);
+            stk.pop();
 
 
     }
