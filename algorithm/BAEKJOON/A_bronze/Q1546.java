@@ -20,7 +20,10 @@ public class Q1546 {
         }
 
         double m = Arrays.stream(array).max().orElseThrow(() -> new RuntimeException("Error"));
-        double r = Arrays.stream(array).map(num -> ((num / m) * 100)).average().orElseThrow();
+        // 제출 1 14776 KB, 112 ms
+        double r = Arrays.stream(array).sum() * 100 / m / 3;
+        // 제출 2 14724 KB, 116 ms
+//        double r = Arrays.stream(array).map(num -> ((num / m) * 100)).average().orElseThrow();
         System.out.println(r);
     }
 }
