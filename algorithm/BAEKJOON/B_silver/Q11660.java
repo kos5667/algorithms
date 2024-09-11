@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -11,15 +10,11 @@ import java.util.StringTokenizer;
  */
 public class Q11660 {
 
-    /**
-     *
-     */
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer tokenizer = new StringTokenizer(br.readLine());
-
-        int n = Integer.parseInt(tokenizer.nextToken());
-        int m = Integer.parseInt(tokenizer.nextToken());
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
         /**
          * [1,1] [1,2] [1,3] [1,4]  설명)
@@ -27,29 +22,41 @@ public class Q11660 {
          * [3,1] [3,2] [3,3] [3,4]  2-1. i > 0 && j == 0 1열 구하기
          * [4,1] [4,2] [4,3] [4,4]  2-2. ex) [3,2] == [3,1] + [2,2] + num - [2,1]
          */
-        int[][] s = new int[n][n];
+        long[][] s = new long[n+1][n+1];
         for (int i=0; i<n; i++) {
-            tokenizer = new StringTokenizer(br.readLine());
+            st = new StringTokenizer(br.readLine());
             for (int j=0; j<n; j++) {
-                int num = Integer.parseInt(tokenizer.nextToken());
+                int num = Integer.parseInt(st.nextToken());
                 if (i == 0) {
-                    s[i][j] = (j == 0) ? num : s[i][j-1] + num;
+                    s[i+1][j+1] = num + s[i+1][j];
                 } else {
-                    s[i][j] = (j == 0) ? s[i-1][j] + num : s[i][j-1] + s[i-1][j] + num - s[i-1][j-1];
+                    s[i+1][j+1] = (j == 0) ? num + s[i][j+1] : num + s[i+1][j] + s[i][j+1] - s[i][j];
                 }
             }
         }
 
-        // TODO: 합배열 완성으로 구간 합 구하기.
+        for (int i=0; i<m; i++) {
+            st = new StringTokenizer(br.readLine());
+            int x1 = Integer.parseInt(st.nextToken()), y1 = Integer.parseInt(st.nextToken());
+            int x2 = Integer.parseInt(st.nextToken()), y2 = Integer.parseInt(st.nextToken());
+            System.out.println(s[x2][y2] - s[x1-1][y2] - s[x2][y1-1] + s[x1-1][y1-1]);
+        }
 
+        print(s);
+    }
 
+    public static void print (long[][] s) {
+        /**
+         * TODO: 합배열 완성으로 구간 합 구하기.
+         * 0 0 0 0 0
+         * 0 1 3 6 10
+         * 0 3 8 15 24
+         * 0 6 15 27 42
+         * 0 10 24 42 64
+         */
 
-
-
-
-        // print
-        for (int[] i : s) {
-            for (int j : i) {
+        for (long[] i : s) {
+            for (long j : i) {
                 System.out.print(j + " ");
             }
             System.out.println();
