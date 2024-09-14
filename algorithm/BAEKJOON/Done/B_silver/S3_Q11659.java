@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
+ * @since 2024-09-12
  * 11659 | 구간 합 구하기 4
  * 시간 제한 0.5초(5000만 연산 이하) | 메모리 제한 128 MB | 실버3
  * 128 MB = 128000 KB, 0.5s = 500000 ms
