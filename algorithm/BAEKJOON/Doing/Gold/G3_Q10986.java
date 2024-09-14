@@ -14,7 +14,6 @@ public class G3_Q10986 {
 
     /**
      * 직접 구현
-     * @param args
      */
     public static void main(String[] args) {
 

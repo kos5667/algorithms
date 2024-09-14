@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * 시간 제한 1초(1억 연산 이하) | 메모리 제한 128 MB | 실버1
  * 128 MB = 128,000 KB, 1s = 1,000,000 ms
  */
-public class Q11660 {
+public class S1_Q11660 {
 
     /**
      * 직접 구현

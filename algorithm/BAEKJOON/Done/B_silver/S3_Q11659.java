@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * 시간 제한 0.5초(5000만 연산 이하) | 메모리 제한 128 MB | 실버3
  * 128 MB = 128000 KB, 0.5s = 500000 ms
  */
-public class Q11659 {
+public class S3_Q11659 {
     /**
      * 복습
      */
