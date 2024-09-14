@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 14719 빗물
  * 골드Ⅴ
  */
-public class Q14719 {
+public class G4_Q14719 {
 
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
