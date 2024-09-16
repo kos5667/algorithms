@@ -1,5 +1,6 @@
 package util;
 
+import util.enums.ANNOTATION;
 import util.enums.TIER;
 import util.enums.SORT;
 import util.models.Question;
@@ -32,15 +33,10 @@ public class ReadmeBulider {
 
         List<File[]> qstFiles = new ArrayList<>();
         for (String path : subPackages) {
-            qstFiles.add(getFiles(path, SORT.DESC.name()));
+            File[] temp = getFiles(path, SORT.DESC.name());
+
+            List<Question> questions = setQuestions(temp);
         }
-
-        for (File[] s : qstFiles) {
-            for (File i : s) {
-
-            }
-        }
-
 
 //        System.out.println(qstFiles);
 //        System.out.println(LEVEL.SILVER.getEmoji(1,2));
@@ -54,7 +50,32 @@ public class ReadmeBulider {
 
     public static List<Question> setQuestions (File[] files) {
         List<Question> list = new ArrayList<>();
+
         for (File inputFilePath : files) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
+                 FileWriter writer = new FileWriter(filePath)) {
+
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    Question question = new Question();
+                    if (line.contains(ANNOTATION.QUESTION_NO.getAnnotation())) {
+                        question.setQuestionNo(line);
+
+                        System.out.println(question.getQuestionNo());
+                    }
+
+//                    if (line.contains(questionKeyword)) {
+//                        System.out.println(line);
+////                        writer.write(line.trim() + System.lineSeparator());
+//                    }
+//                    if (line.contains(sinceKeyword)) {
+//                        System.out.println(line);
+//                        continue;
+//                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
         }
         return null;
@@ -65,23 +86,7 @@ public class ReadmeBulider {
         String sinceKeyword = "@since";
 
         for (File inputFilePath : files) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
-                 FileWriter writer = new FileWriter(filePath)) {
 
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    if (line.contains(questionKeyword)) {
-                        System.out.println(line);
-//                        writer.write(line.trim() + System.lineSeparator());
-                    }
-                    if (line.contains(sinceKeyword)) {
-                        System.out.println(line);
-                        continue;
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 
