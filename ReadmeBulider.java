@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+/**
+ * Annotation을 이용한 README 자동 입력.
+ * '|' 구분자를 이용히여 문제의 No, 제목, 레밸을 도출한다.
+ * Annotation 목록: {
+ *  '@question':
+ *  '@since'
+ *  }
+ */
 public class ReadmeBulider {
     static final String filePath = "./READMETEST.md";
     static final String basePackage = "./algorithm/BAEKJOON/Done";
@@ -36,7 +44,8 @@ public class ReadmeBulider {
         File file = new File(path);
         File[] files = file.listFiles(File::isFile);
 
-        String questionKeyword = "@question", sinceKeyword = "@since";
+        String questionKeyword = "@question";
+        String sinceKeyword = "@since";
 
         for (File inputFilePath : files) {
             try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
