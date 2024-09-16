@@ -1,11 +1,19 @@
 package util.enums;
 
 public enum PLATFORM {
-    ALGORITHM("Algorithm"), BAEKJOON("Baekjoon"), PROGRAMMERS("Programmers"), ETC("ETC");
+    BAEKJOON,
+    PROGRAMMERS,
+    ALGORITHM;
 
-    private final String name;
+    public String getName() {
+        return "$" + this + "$";
+    }
 
-    PLATFORM(String name) {
-        this.name = name;
+    public String start () {
+        return getName() + "START";
+    }
+
+    public String end () {
+        return getName() + "END";
     }
 }
