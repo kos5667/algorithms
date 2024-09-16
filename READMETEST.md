@@ -1,15 +1,27 @@
-
 # Algorithm
+sds
 
-[//]: # (BaekJoon START)
 ## BaekJoon
+[//]: # ($BAEKJOON$START)
 
-[//]: # (BaekJoon END)
+### BRONZE
+- df
+- df
+- df
+
+### SILVER
+- sdf
+
+GOLD
+
+[//]: # ($BAEKJOON$END)
 
 ---
-[//]: # (Programmers START)
+[//]: # ($PROGRAMMERS$START)
+
 ## Programmers
 
+[//]: # ($PROGRAMMERS$END)
 
 ---
 ## ETC
