@@ -111,4 +111,25 @@ public class Main {
             System.out.println(Math.abs(A-B));
         }
     }
+
+    public static class Q2438 {
+        public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int A = Integer.parseInt(st.nextToken());
+
+            for(int i=1; i<=A; i++) {
+                System.out.println("*".repeat(i));
+            }
+        }
+    }
+
+    public static class Q2743 {
+        public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            String n = st.nextToken();
+            System.out.println(n.length());
+        }
+    }
 }

@@ -6,7 +6,7 @@ import java.util.*;
  * 지능형 기차 2
  * 2460 : 브론즈Ⅲ
  */
-public class Q2460 {
+public class B3_Q2460 {
     public static void main(String[] args) {
         // answer1();
         answer2();

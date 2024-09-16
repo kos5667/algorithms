@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 약수 구하기
  * 2501 : 브론즈Ⅲ
  */
-public class Q2501 {
+public class B3_Q2501 {
 
     public static void main(String[] args) {
 
