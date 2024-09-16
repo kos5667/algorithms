@@ -71,4 +71,44 @@ public class Main {
             System.out.println(A > B ? ">" : A < B ? "<" : "== ");
         }
     }
+
+    public static class Q2338 {
+        public static void main(String[] args) throws Exception {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            BigInteger a = new BigInteger(br.readLine());
+            BigInteger b = new BigInteger(br.readLine());
+            System.out.println(a.add(b));
+            System.out.println(a.subtract(b));
+            System.out.print(a.multiply(b));
+        }
+    }
+
+    public static class Q2393 {
+        public static void main(String[] args) throws Exception {
+            System.out.println("  ___  ___  ___");
+            System.out.println("  | |__| |__| |");
+            System.out.println("  |           |");
+            System.out.println("   \\_________/");
+            System.out.println("    \\_______/");
+            System.out.println("     |     |");
+            System.out.println("     |     |");
+            System.out.println("     |     |");
+            System.out.println("     |     |");
+            System.out.println("     |_____|");
+            System.out.println("  __/       \\__");
+            System.out.println(" /             \\");
+            System.out.println("/_______________\\");
+        }
+    }
+
+    public static class Q2420 {
+        public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+            long A = Long.parseLong(st.nextToken());
+            long B = Long.parseLong(st.nextToken());
+
+            System.out.println(Math.abs(A-B));
+        }
+    }
 }

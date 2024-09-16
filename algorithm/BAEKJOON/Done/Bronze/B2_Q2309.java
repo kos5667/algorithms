@@ -6,7 +6,7 @@ import java.util.*;
  * 일곱 난쟁이
  * 2309 : 브론즈Ⅱ
  */
-public class Q2309 {
+public class B2_Q2309 {
     public static void main(String[] args) {
         // answer1();
         answer2();
