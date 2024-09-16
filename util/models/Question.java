@@ -3,9 +3,14 @@ package util.models;
 import util.enums.ANNOTATION;
 import util.enums.TIER;
 
+import java.io.File;
+
 public class Question {
 
+    private final File file;
+
     private TIER tier;
+
     // 문제 번호
     private int questionNo;
 
@@ -21,16 +26,17 @@ public class Question {
     // 일자
     private String since;
 
-    public Question(TIER tier) {
+    public Question(TIER tier, File file) {
         this.tier = tier;
+        this.file = file;
     }
 
     public TIER getTier() {
         return tier;
     }
 
-    public void setTier(TIER tier) {
-        this.tier = tier;
+    public File getFile() {
+        return file;
     }
 
     public int getQuestionNo() {
