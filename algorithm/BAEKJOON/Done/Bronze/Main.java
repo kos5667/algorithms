@@ -7,6 +7,10 @@ import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+/**
+ * 시간 제한 1초(10000만 연산 이하) | 메모리 제한 128 MB
+ * 128 MB = 128000 KB, 0.5s = 500000 ms
+ */
 public class Main {
     public static void main(String[] args) throws Exception {
         main.run();

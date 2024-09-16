@@ -6,9 +6,13 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
+ * @questionNo 10986
+ * @questionTitle 나머지 합
+ * @questionLevel 골드3
+ * @isComplete false
  * @since 2024-09-14
- * 10986 | 나머지 합
- * 시간 제한 1초(1억 연산 이하) | 메모리 제한 256 MB | 골드3
+ * @desription
+ * 시간 제한 1초(1억 연산 이하) | 메모리 제한 256 MB |
  * 128 MB = 128,000 KB, 1s = 1,000,000 ms
  */
 public class G3_Q10986 {

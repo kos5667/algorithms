@@ -1,3 +1,5 @@
+package util;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,6 +18,7 @@ import java.util.stream.Stream;
  *  }
  */
 public class ReadmeBulider {
+    static final String BAEKJOON_URL = "https://www.acmicpc.net/problem/1546";
     static final String filePath = "./READMETEST.md";
     static final String basePackage = "./algorithm/BAEKJOON/Done";
 
@@ -29,9 +32,11 @@ public class ReadmeBulider {
 
         System.out.println(subPackages);
 
-        for (String path : subPackages) {
-            getFiles(path);
-        }
+//        for (String path : subPackages) {
+//            getFiles(path);
+//        }
+
+        System.out.println(LEVEL.SILVER.getEmoji(1,2));
 
 //        try {
 //            Files.write(Paths.get(filePath), test.getBytes(), StandardOpenOption.APPEND);
@@ -40,10 +45,7 @@ public class ReadmeBulider {
 //        }
     }
 
-    public static List<String> getFiles(String path) {
-        File file = new File(path);
-        File[] files = file.listFiles(File::isFile);
-
+    public static void writeReadme (File[] files) {
         String questionKeyword = "@question";
         String sinceKeyword = "@since";
 
@@ -66,7 +68,16 @@ public class ReadmeBulider {
                 e.printStackTrace();
             }
         }
+    }
 
+    public static List<String> getFiles(String path) {
+        File file = new File(path);
+        File[] files = file.listFiles(File::isFile);
+
+
+        for (File f : files) {
+            System.out.println(f);
+        }
         return null;
     }
 

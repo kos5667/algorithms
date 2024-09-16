@@ -5,7 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Q2744 {
+/**
+ * @questionNo 2744
+ * @questionTitle 대소문자 바꾸기
+ * @questionLevel 브론즈5
+ * @isComplete true
+ * @since 2024-03-12
+ */
+public class B5_Q2744 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
