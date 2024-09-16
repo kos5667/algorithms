@@ -6,10 +6,7 @@ import util.enums.SORT;
 import util.models.Question;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Annotation을 이용한 README 자동 입력.
@@ -31,54 +28,68 @@ public class ReadmeBulider {
         // TODO: Bronze, Silver, Gold... 티어 순서 정렬.
         List<String> subPackages = getSubPackages();
 
-        List<File[]> qstFiles = new ArrayList<>();
         for (String path : subPackages) {
             File[] temp = getFiles(path, SORT.DESC.name());
 
-            List<Question> questions = setQuestions(temp);
+            Optional<TIER> tier = Arrays.stream(TIER.values())
+                    .filter(tierValue -> path.toUpperCase().contains(tierValue.name()))
+                    .findFirst();
+
+            List<Question> questions = setQuestions(temp, tier.orElse(null));
+
+            write(questions);
         }
-
-//        System.out.println(qstFiles);
-//        System.out.println(LEVEL.SILVER.getEmoji(1,2));
-
-//        try {
-//            Files.write(Paths.get(filePath), test.getBytes(), StandardOpenOption.APPEND);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
-    public static List<Question> setQuestions (File[] files) {
+    /**
+     * README 작성.
+     */
+    public static void write(List<Question> questions) {
+        for (Question question : questions) {
+            StringBuilder stringBuilder = new StringBuilder();
+        }
+    }
+
+    /**
+     * 파일내 주석 도출
+     */
+    public static List<Question> setQuestions (File[] files, TIER tier) {
         List<Question> list = new ArrayList<>();
 
         for (File inputFilePath : files) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
-                 FileWriter writer = new FileWriter(filePath)) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath))) {
+                Question question = new Question(tier);
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    Question question = new Question();
+                    // 문제 번호
                     if (line.contains(ANNOTATION.QUESTION_NO.getAnnotation())) {
                         question.setQuestionNo(line);
-
-                        System.out.println(question.getQuestionNo());
                     }
-
-//                    if (line.contains(questionKeyword)) {
-//                        System.out.println(line);
-////                        writer.write(line.trim() + System.lineSeparator());
-//                    }
-//                    if (line.contains(sinceKeyword)) {
-//                        System.out.println(line);
-//                        continue;
-//                    }
+                    // 문제 제목
+                    if (line.contains(ANNOTATION.QUESTION_TITLE.getAnnotation())) {
+                        question.setQuestionTitle(line);
+                    }
+                    // 문제 레벨
+                    if (line.contains(ANNOTATION.QUESTION_LEVEL.getAnnotation())) {
+                        question.setQuestionLevel(line);
+                    }
+                    // 완료 유무
+                    if (line.contains(ANNOTATION.IS_COMPLETE.getAnnotation())) {
+                        question.setComplete(line);
+                    }
+                    // 일자
+                    if (line.contains(ANNOTATION.SINCE.getAnnotation())) {
+                        question.setSince(line);
+                        break;
+                    }
                 }
+                list.add(question);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-        return null;
+        return list;
     }
 
     public static void writeReadme (File[] files) {
