@@ -1,6 +1,7 @@
 package util;
 
 import util.enums.ANNOTATION;
+import util.enums.PLATFORM;
 import util.enums.TIER;
 import util.enums.SORT;
 import util.models.Question;
@@ -20,7 +21,7 @@ import java.util.*;
  */
 public class ReadmeBulider {
     static final String BAEKJOON_URL = "https://www.acmicpc.net/problem/1546";
-    static final String filePath = "./READMETEST.md";
+    static final String README_PATH = "./READMETEST.md";
     static final String basePackage = "./algorithm/BAEKJOON/Doing";
 
 
@@ -28,25 +29,70 @@ public class ReadmeBulider {
         // TODO: Bronze, Silver, Gold... 티어 순서 정렬.
         List<String> subPackages = getSubPackages();
 
-        for (String path : subPackages) {
-            File[] temp = getFiles(path, SORT.DESC.name());
+        StringBuilder content = new StringBuilder();
 
+        for (String path : subPackages) {
+            // 티어 목록
             Optional<TIER> tier = Arrays.stream(TIER.values())
                     .filter(tierValue -> path.toUpperCase().contains(tierValue.name()))
                     .findFirst();
 
+            File[] temp = getFiles(path, SORT.DESC.name());
             List<Question> questions = setQuestions(temp, tier.orElse(null));
-
-            write(questions);
+            content.append(createContent(questions));
         }
+
+        System.out.println(content);
+//        write(read(content.toString()));
+    }
+
+    public static String createContent(List<Question> questions) {
+        StringBuilder contents = new StringBuilder();
+        for (Question question : questions) {
+            contents.append("- ")
+                    .append(question.getTier()).append(question.getQuestionLevel())
+                    .append(" ").append(question.getQuestionNo())
+                    .append("(").append(question.getQuestionTitle()).append(") ")
+                    .append(question.isComplete() ? ("`완료`" + question.getSince()) : "`진행중`")
+                    .append(System.lineSeparator());
+        }
+        return contents.toString();
     }
 
     /**
-     * README 작성.
+     * README 내용 복사
      */
-    public static void write(List<Question> questions) {
-        for (Question question : questions) {
-            StringBuilder stringBuilder = new StringBuilder();
+    public static String read(String content) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(README_PATH))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+//                System.out.println(line);
+                if (line.contains(PLATFORM.BAEKJOON.start())) {
+                    System.out.println(line);
+
+                }
+
+                if (line.contains(PLATFORM.BAEKJOON.end())) {
+
+                }
+
+                stringBuilder.append(line).append(System.lineSeparator());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
+
+    /**
+     * README 작성
+     */
+    public static void write(String content) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(README_PATH))) {
+            writer.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -56,9 +102,9 @@ public class ReadmeBulider {
     public static List<Question> setQuestions (File[] files, TIER tier) {
         List<Question> list = new ArrayList<>();
 
-        for (File inputFilePath : files) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(inputFilePath))) {
-                Question question = new Question(tier);
+        for (File file : files) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                Question question = new Question(tier, file);
 
                 String line;
                 while ((line = reader.readLine()) != null) {
@@ -90,15 +136,6 @@ public class ReadmeBulider {
             }
         }
         return list;
-    }
-
-    public static void writeReadme (File[] files) {
-        String questionKeyword = "@question";
-        String sinceKeyword = "@since";
-
-        for (File inputFilePath : files) {
-
-        }
     }
 
     /**
