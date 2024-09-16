@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @questionNo 10870
  * @questionTitle 피보나치 수 5
- * @questionLevel 브론즈2
+ * @questionLevel 2
  * @isComplete true
  * @since 2022-03-13
  */

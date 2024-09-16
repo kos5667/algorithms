@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * @questionNo 2501
  * @questionTitle 약수 구하기
- * @questionLevel 브론즈3
+ * @questionLevel 3
  * @isComplete true
  * @since 2022-03-10
  */

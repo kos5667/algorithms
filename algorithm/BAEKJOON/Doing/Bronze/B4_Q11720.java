@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * @questionNo 11720
  * @questionTitle 숫자의 합 구하기
- * @questionLevel 브론즈4
+ * @questionLevel 4
  * @isComplete true
  * @since 2024-08-18
  */

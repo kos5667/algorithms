@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @questionNo 2460
  * @questionTitle 지능형 기차 2
- * @questionLevel 브론즈3
+ * @questionLevel 3
  * @isComplete true
  * @since 2022-03-13
  */

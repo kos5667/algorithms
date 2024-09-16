@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /**
  * @questionNo 1546
  * @questionTitle 평균 구하기
- * @questionLevel 브론즈1
+ * @questionLevel 1
  * @isComplete true
  * @since 2024-08-18
  */

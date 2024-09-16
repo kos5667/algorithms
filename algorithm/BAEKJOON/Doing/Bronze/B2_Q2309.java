@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @questionNo 2309
  * @questionTitle 일곱 난쟁이
- * @questionLevel 브론즈2
+ * @questionLevel 2
  * @isComplete true
  * @since 2022-03-14
  */

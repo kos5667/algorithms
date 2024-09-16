@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 /**
  * @questionNo 15552
  * @questionTitle 빠른 A+B
- * @questionLevel 브론즈4
+ * @questionLevel 4
  * @isComplete true
  * @since 2022-03-16
  */

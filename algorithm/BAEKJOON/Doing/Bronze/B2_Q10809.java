@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /**
  * @questionNo 1152
  * @questionTitle
- * @questionLevel 브론즈2
+ * @questionLevel 2
  * @isComplete true
  * @since 2024-08-18
  */

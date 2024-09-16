@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * @questionNo 10818
  * @questionTitle 최소, 최대
- * @questionLevel 브론즈3
+ * @questionLevel 3
  * @isComplete true
  * @since 2022-03-10
  */

@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 /**
  * @questionNo 2744
  * @questionTitle 대소문자 바꾸기
- * @questionLevel 브론즈5
+ * @questionLevel 5
  * @isComplete true
  * @since 2024-03-12
  */

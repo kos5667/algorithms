@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * @questionNo 3460
  * @questionTitle 이진수
- * @questionLevel 브론즈3
+ * @questionLevel 3
  * @isComplete true
  * @since 2022-03-12
  */
