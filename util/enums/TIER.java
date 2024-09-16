@@ -1,6 +1,6 @@
 package util.enums;
 
-public enum LEVEL {
+public enum TIER {
 
     BRONZE(1, 0,"\uD83E\uDD47"),
     SILVER(2, 0, "\uD83E\uDD47"),
@@ -13,7 +13,7 @@ public enum LEVEL {
     // 이모지
     private final String emoji;
 
-    LEVEL(int idx, int level, String emoji) {
+    TIER(int idx, int level, String emoji) {
         this.index = idx;
         this.level = level;
         this.emoji = emoji;
