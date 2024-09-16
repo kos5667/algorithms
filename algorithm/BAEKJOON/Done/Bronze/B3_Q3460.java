@@ -3,10 +3,13 @@ package Done.Bronze;
 import java.util.Scanner;
 
 /**
- * 이진수
- * 3460 : 브론즈Ⅲ
+ * @questionNo 3460
+ * @questionTitle 이진수
+ * @questionLevel 브론즈3
+ * @isComplete true
+ * @since 2022-03-12
  */
-public class Q3460 {
+public class B3_Q3460 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
             int t = scan.nextInt();

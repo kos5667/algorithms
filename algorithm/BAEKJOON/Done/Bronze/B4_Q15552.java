@@ -4,10 +4,13 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 /**
- * 15552 빠른 A+B
- * 브론즈Ⅱ
+ * @questionNo 15552
+ * @questionTitle 빠른 A+B
+ * @questionLevel 브론즈4
+ * @isComplete true
+ * @since 2022-03-16
  */
-public class Q15552 {
+public class B4_Q15552 {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

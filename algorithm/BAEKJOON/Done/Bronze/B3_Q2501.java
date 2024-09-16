@@ -9,7 +9,6 @@ import java.util.Scanner;
  * @isComplete true
  * @since 2022-03-10
  */
-
 public class B3_Q2501 {
 
     public static void main(String[] args) {

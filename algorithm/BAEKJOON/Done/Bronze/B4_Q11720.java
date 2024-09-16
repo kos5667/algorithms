@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * 11720
- * 숫자의 합 구하기
- * 시간 제한 1초(1억 번 이하 연산)| 보론즈2
+ * @questionNo 11720
+ * @questionTitle 숫자의 합 구하기
+ * @questionLevel 브론즈4
+ * @isComplete true
+ * @since 2024-08-18
  */
-public class Q11720 {
+public class B4_Q11720 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());

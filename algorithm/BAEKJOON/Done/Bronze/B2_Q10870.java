@@ -1,11 +1,15 @@
 package Done.Bronze;
 
 import java.util.*;
+
 /**
- * 피보나치 수 5
- * 10870 : 브론즈Ⅱ
+ * @questionNo 10870
+ * @questionTitle 피보나치 수 5
+ * @questionLevel 브론즈2
+ * @isComplete true
+ * @since 2022-03-13
  */
-public class Q10870 {
+public class B2_Q10870 {
     public static void main(String[] args) {
         // answer1();
         answer2();
