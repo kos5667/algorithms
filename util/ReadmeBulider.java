@@ -1,10 +1,14 @@
 package util;
 
-import util.enums.LEVEL;
+import util.enums.TIER;
+import util.enums.SORT;
+import util.models.Question;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Annotation을 이용한 README 자동 입력.
@@ -13,33 +17,47 @@ import java.util.List;
  *  '@question':
  *  '@since'
  *  }
+ *  TODO(1): 이모지 URL 티어 및 레밸 별로 enum 생성.
+ *  TODO(2): 티어는 브론즈 (1~5) 내림차순.
  */
 public class ReadmeBulider {
     static final String BAEKJOON_URL = "https://www.acmicpc.net/problem/1546";
     static final String filePath = "./READMETEST.md";
-    static final String basePackage = "./algorithm/BAEKJOON/Done";
-
-    static final String BRONZE = "\uD83E\uDD47";
-    static final String SILVER = "\uD83E\uDD47";
-    static final String GOLD = "\uD83E\uDD47";
+    static final String basePackage = "./algorithm/BAEKJOON/Doing";
 
 
     public static void main(String[] args) throws IOException {
+        // TODO: Bronze, Silver, Gold... 티어 순서 정렬.
         List<String> subPackages = getSubPackages();
 
-        System.out.println(subPackages);
+        List<File[]> qstFiles = new ArrayList<>();
+        for (String path : subPackages) {
+            qstFiles.add(getFiles(path, SORT.DESC.name()));
+        }
 
-//        for (String path : subPackages) {
-//            getFiles(path);
-//        }
+        for (File[] s : qstFiles) {
+            for (File i : s) {
 
-        System.out.println(LEVEL.SILVER.getEmoji(1,2));
+            }
+        }
+
+
+//        System.out.println(qstFiles);
+//        System.out.println(LEVEL.SILVER.getEmoji(1,2));
 
 //        try {
 //            Files.write(Paths.get(filePath), test.getBytes(), StandardOpenOption.APPEND);
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+    public static List<Question> setQuestions (File[] files) {
+        List<Question> list = new ArrayList<>();
+        for (File inputFilePath : files) {
+
+        }
+        return null;
     }
 
     public static void writeReadme (File[] files) {
@@ -67,18 +85,9 @@ public class ReadmeBulider {
         }
     }
 
-    public static List<String> getFiles(String path) {
-        File file = new File(path);
-        File[] files = file.listFiles(File::isFile);
-
-
-        for (File f : files) {
-            System.out.println(f);
-        }
-        return null;
-    }
-
-
+    /**
+     * 하위 패키지 경로.
+     */
     public static List<String> getSubPackages() {
         List<String> subPackages = new ArrayList<>();
         File baseDir = new File(basePackage);
@@ -92,6 +101,26 @@ public class ReadmeBulider {
                 }
             }
         }
+
         return subPackages;
+    }
+
+    /**
+     * 하위 패키지 내 문제 파일 추출 및 정렬
+     * @param path path
+     * @param sort ASC: 오름차순, DESC: 내림차순, null: 정령 X
+     */
+    public static File[] getFiles(String path, String sort) {
+        File file = new File(path);
+        File[] files = file.listFiles(File::isFile);
+
+        if (Objects.equals(sort, "ASC")) {
+            Arrays.sort(files, (f1, f2) -> f1.getName().compareTo(f2.getName()));
+        }
+        if (Objects.equals(sort, "DESC")) {
+            Arrays.sort(files, (f1, f2) -> f2.getName().compareTo(f1.getName()));
+        }
+
+        return files;
     }
 }
