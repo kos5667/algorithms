@@ -3,8 +3,11 @@ package Done.Bronze;
 import java.util.*;
 
 /**
- * 일곱 난쟁이
- * 2309 : 브론즈Ⅱ
+ * @questionNo 2309
+ * @questionTitle 일곱 난쟁이
+ * @questionLevel 브론즈2
+ * @isComplete true
+ * @since 2022-03-14
  */
 public class B2_Q2309 {
     public static void main(String[] args) {

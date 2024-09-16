@@ -3,9 +3,13 @@ package Done.Bronze;
 import java.util.Scanner;
 
 /**
- * 약수 구하기
- * 2501 : 브론즈Ⅲ
+ * @questionNo 2501
+ * @questionTitle 약수 구하기
+ * @questionLevel 브론즈3
+ * @isComplete true
+ * @since 2022-03-10
  */
+
 public class B3_Q2501 {
 
     public static void main(String[] args) {

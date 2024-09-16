@@ -11,8 +11,6 @@ import java.util.StringTokenizer;
  * @questionLevel 브론즈1
  * @isComplete true
  * @since 2024-08-18
- * @desription
- *
  */
 public class B1_Q1546 {
     public static void main(String[] args) throws IOException {

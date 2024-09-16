@@ -3,8 +3,11 @@ package Done.Bronze;
 import java.util.*;
 
 /**
- * 지능형 기차 2
- * 2460 : 브론즈Ⅲ
+ * @questionNo 2460
+ * @questionTitle 지능형 기차 2
+ * @questionLevel 브론즈3
+ * @isComplete true
+ * @since 2022-03-13
  */
 public class B3_Q2460 {
     public static void main(String[] args) {
