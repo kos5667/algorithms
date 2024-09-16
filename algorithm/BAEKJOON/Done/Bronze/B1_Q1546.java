@@ -6,8 +6,10 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * 1546 | 평균 구하기
- * 시간 제한 2초 | 메모리 제한 128 MB | 브론즈1
+ * @question 1546 | 평균 구하기 | 브론즈1
+ * @since 2024-08-18
+ * 시간 제한 2초(20000만 연산 이하) | 메모리 제한 128 MB | 실버3
+ * 128 MB = 128000 KB, 0.5s = 500000 ms
  */
 public class B1_Q1546 {
     public static void main(String[] args) throws IOException {
