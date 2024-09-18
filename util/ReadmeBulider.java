@@ -22,7 +22,7 @@ import java.util.*;
 public class ReadmeBulider {
     static final String BAEKJOON_URL = "https://www.acmicpc.net/problem/1546";
     static final String README_PATH = "./READMETEST.md";
-    static final String basePackage = "./algorithm/BAEKJOON/Doing";
+    static final String basePackage = "./algorithm/BAEKJOON";
 
 
     public static void main(String[] args) throws IOException {
@@ -53,7 +53,7 @@ public class ReadmeBulider {
                     .append(question.getTier()).append(question.getQuestionLevel())
                     .append(" ").append(question.getQuestionNo())
                     .append("(").append(question.getQuestionTitle()).append(") ")
-                    .append(question.isComplete() ? ("`완료`" + question.getSince()) : "`진행중`")
+                    .append(question.isComplete() ? ("`완료` " + question.getSince()) : "`진행중`")
                     .append(System.lineSeparator());
         }
         return contents.toString();
