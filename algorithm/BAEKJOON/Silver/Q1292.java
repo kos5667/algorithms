@@ -1,4 +1,4 @@
-package Done.Silver;
+package Silver;
 
 import java.io.*;
 import java.util.Scanner;

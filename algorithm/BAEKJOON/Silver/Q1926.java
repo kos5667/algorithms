@@ -1,4 +1,4 @@
-package Done.Silver;
+package Silver;
 
 import java.util.ArrayList;
 import java.util.Scanner;

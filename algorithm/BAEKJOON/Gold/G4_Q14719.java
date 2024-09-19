@@ -1,4 +1,4 @@
-package Doing.Gold;
+package Gold;
 
 import java.util.Scanner;
 

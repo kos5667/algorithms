@@ -1,4 +1,4 @@
-package Doing.Gold;
+package Gold;
 
 import java.io.BufferedReader;
 import java.io.IOException;
