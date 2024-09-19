@@ -79,6 +79,13 @@ public class Question {
         this.since = parseLine(since, ANNOTATION.SINCE.getAnnotation());
     }
 
+    public String getQuestionURL() {
+        if (this.questionNo == 0) {
+            return "#";
+        }
+        return "https://www.acmicpc.net/problem/" + this.questionNo;
+    }
+
     public String parseLine(String txt, String annotation) {
         return txt.substring(txt.indexOf(annotation) + annotation.length()).trim();
     }
