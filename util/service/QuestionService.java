@@ -2,6 +2,7 @@ package util.service;
 
 import util.enums.ANNOTATION;
 import util.enums.PLATFORM;
+import util.enums.SORT;
 import util.enums.TIER;
 import util.models.Question;
 
@@ -57,7 +58,7 @@ public class QuestionService {
      * @param path path
      * @param sort ASC: 오름차순, DESC: 내림차순, null: 정령 X
      */
-    public File[] getFiles(String path, String sort) {
+    public File[] getFile(String path, String sort) {
         File file = new File(path);
         File[] files = file.listFiles(File::isFile);
 
@@ -72,10 +73,20 @@ public class QuestionService {
     }
 
     /**
-     * 파일내 주석 출력
+     * 추출한 파일 분리
      */
-    public void getQuestions () {
+    public Map<TIER, File[]> getFiles () {
+        Map<TIER, File[]> result = new HashMap<>();
+        List<String> subPackages = this.getSubPackages();
+        for (String path : subPackages) {
+            // 티어 목록(Bronze, Silver, Gold...)
+            Optional<TIER> tier = Arrays.stream(TIER.values())
+                    .filter(tierValue -> path.toUpperCase().contains(tierValue.name()))
+                    .findFirst();
 
+            result.put(tier.orElse(null), this.getFile(path, SORT.DESC.name()));
+        }
+        return result;
     }
 
     /**

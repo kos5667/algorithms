@@ -24,23 +24,24 @@ public class ReadmeBulider {
         questionService = QuestionService.getInstance(PLATFORM.BAEKJOON);
         readmeService = ReadmeService.getInstance();
 
-        List<String> subPackages = questionService.getSubPackages();
-        StringBuilder content = new StringBuilder();
-//        for (String path : subPackages) {
-//            // Get Files
-//            File[] temp = questionService.getFiles(path, SORT.DESC.name());
-//
-//            // 티어 목록(Bronze, Silver, Gold...)
-//            Optional<TIER> tier = Arrays.stream(TIER.values())
-//                    .filter(tierValue -> path.toUpperCase().contains(tierValue.name()))
-//                    .findFirst();
-//
-//            // 각 티어별 Contents 도출.
-//            List<Question> questions = questionService.setQuestions(temp, tier.orElse(null));
-//            content.append(readmeService.createContent(questions));
-//        }
+        read();
+        // 각 티어별 Contents 도출.
+//        List<Question> questions = questionService.setQuestions(temp, tier.orElse(null));
+//        content.append(readmeService.createContent(questions));
 
+        StringBuilder content = new StringBuilder();
         System.out.println(content);
 //        write(read(content.toString()));
+    }
+
+    public static void read() {
+        Map<TIER, File[]> files = questionService.getFiles();
+        System.out.println(files);
+        files.forEach((tier, o) -> {
+            List<Question> questions = questionService.setQuestions(o, tier);
+            String contents = readmeService.createContent(questions);
+            System.out.println(contents);
+            System.out.println("====================");
+        });
     }
 }
