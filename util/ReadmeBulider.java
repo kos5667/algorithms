@@ -27,13 +27,7 @@ public class ReadmeBulider {
         String content = "";
         content = createContent();
         content = inputContent(content);
-
         readmeService.write(content);
-        // 각 티어별 Contents 도출.
-//        List<Question> questions = questionService.setQuestions(temp, tier.orElse(null));
-//        content.append(readmeService.createContent(questions));
-
-//        write(read(content.toString()));
     }
 
     public static String createContent() {

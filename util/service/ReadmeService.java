@@ -44,19 +44,24 @@ public class ReadmeService {
     public String inputContent(String contents, PLATFORM platform) {
         StringBuilder builder = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(README_PATH))){
-            String line;
+            String line; boolean skip = false;
             while ((line = reader.readLine()) != null) {
-                builder.append(line).append(System.lineSeparator());
+                if (!skip) {
+                    builder.append(line).append(System.lineSeparator());
+                }
                 if (line.contains(platform.start())) {
+                    skip = true;
                     builder.append(contents);
                 }
                 if (line.contains(platform.end())) {
                     builder.append(System.lineSeparator());
+                    skip = false;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(builder.toString());
         return builder.toString();
     }
 
