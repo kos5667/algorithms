@@ -33,12 +33,21 @@ public class ReadmeBulider {
     }
 
     public static void read() {
-        Map<TIER, File[]> files = questionService.getFiles();
+        Map<TIER, List<Question>> materials = questionService.getMaterials();
 
-        Map<TIER, List<Question>> content = new HashMap<>();
-        files.forEach((tier, o) -> content.put(tier, questionService.setQuestions(tier, o)));
+        StringBuilder contents = new StringBuilder();
+        Arrays.stream(TIER.values()).forEach(tier -> {
+            List<Question> questions = materials.get(tier);
+            if (questions.isEmpty()) return;
 
+            readmeService.createContent(questions,
+                    contents.append(System.lineSeparator())
+                            .append("### ")
+                            .append(tier.name())
+                            .append("\n"));
+        });
 
-//        String contents = readmeService.createContent(questions);
+        System.out.println("=============");
+        System.out.println(contents.toString());
     }
 }

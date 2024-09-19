@@ -143,4 +143,12 @@ public class QuestionService {
         // 레벨순으로 정렬
         list.sort(Comparator.comparing(Question::getQuestionLevel).reversed());
     }
+
+    public Map<TIER, List<Question>> getMaterials() {
+        Map<TIER, File[]> files = this.getFiles();
+
+        Map<TIER, List<Question>> materials = new HashMap<>();
+        files.forEach((tier, o) -> materials.put(tier, questionService.setQuestions(tier, o)));
+        return materials;
+    }
 }

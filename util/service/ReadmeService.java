@@ -27,8 +27,7 @@ public class ReadmeService {
     /**
      * 내용 입력.
      */
-    public String createContent(List<Question> questions) {
-        StringBuilder contents = new StringBuilder();
+    public StringBuilder createContent(List<Question> questions, StringBuilder contents) {
         for (Question question : questions) {
             contents.append("- ")
                     .append(question.getTier()).append(question.getQuestionLevel()).append(" ")
@@ -38,10 +37,11 @@ public class ReadmeService {
                     .append(question.isComplete() ? ("`완료` " + question.getSince()) : "`진행중`")
                     .append(System.lineSeparator());
         }
-        System.out.println("=============");
-        System.out.println(contents.toString());
+        return contents;
+    }
 
-        return contents.toString();
+    private String setTitle(int n, String title) {
+        return "#".repeat(n) + title;
     }
 
     /**
