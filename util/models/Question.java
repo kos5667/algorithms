@@ -89,4 +89,32 @@ public class Question {
     public String parseLine(String txt, String annotation) {
         return txt.substring(txt.indexOf(annotation) + annotation.length()).trim();
     }
+
+    /**
+     * TODO: 이미지 찾기.
+     */
+    public String getEmoji() {
+        String alt = getTier().name() + getQuestionLevel();
+        String img = "4";
+        return "<img src=\"https://static.solved.ac/tier_small/"
+             + img + ".svg\" alt=\"" + alt + "\">";
+//        return "<img src=\"https://static.solved.ac/tier_small/4.svg\" alt=\"4\">";
+    }
+
+    private String getImageOfTier() {
+        switch (getTier()) {
+            case BRONZE:
+                return null;
+            case SILVER:
+                return null;
+            case GOLD:
+                return null;
+            case PLATINUM:
+                return null;
+            case DIAMOND:
+                return null;
+            default:
+                return null;
+        }
+    }
 }

@@ -29,8 +29,9 @@ public class ReadmeService {
     public void createContent(List<Question> questions, StringBuilder contents) {
         for (Question question : questions) {
             contents.append("- ")
-                    .append(question.getTier()).append(question.getQuestionLevel()).append(" ")
-                    .append("[").append(question.getQuestionNo())
+                    .append(question.getEmoji())
+//                    .append(question.getTier()).append(question.getQuestionLevel())
+                    .append(" ").append("[").append(question.getQuestionNo())
                     .append("(").append(question.getQuestionTitle()).append(")").append("]")
                     .append("(").append(question.getQuestionURL()).append(")")
                     .append(question.isComplete() ? (" `완료` " + question.getSince()) : " `진행중` ")

@@ -22,15 +22,6 @@ public enum TIER {
     public int getIndex() { return index; };
     public String getName() { return name; }
 
-    /**
-     *
-     * @param level {1,2,3,4,5}
-     * @param size 1: Large, 2: Small
-     */
-    public String getEmoji(int level, int size) {
-        return "<img src=\"https://static.solved.ac/tier_small/4.svg\" alt=\"4\">";
-    }
-
     public static TIER fromName(String name) {
         return Arrays.stream(TIER.values())
                 .filter(tier -> name.contains(tier.getName()))
