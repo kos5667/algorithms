@@ -24,7 +24,8 @@ public class ReadmeBulider {
         questionService = QuestionService.getInstance(PLATFORM.BAEKJOON);
         readmeService = ReadmeService.getInstance();
 
-        read();
+        String content = createContent();
+        System.out.println(content);
         // 각 티어별 Contents 도출.
 //        List<Question> questions = questionService.setQuestions(temp, tier.orElse(null));
 //        content.append(readmeService.createContent(questions));
@@ -32,7 +33,7 @@ public class ReadmeBulider {
 //        write(read(content.toString()));
     }
 
-    public static void read() {
+    public static String createContent() {
         Map<TIER, List<Question>> materials = questionService.getMaterials();
 
         StringBuilder contents = new StringBuilder();
@@ -46,7 +47,6 @@ public class ReadmeBulider {
                             .append(tier.name())
                             .append("\n"));
         });
-
-        System.out.println(contents.toString());
+        return contents.toString();
     }
 }

@@ -148,7 +148,7 @@ public class QuestionService {
         Map<TIER, File[]> files = this.getFiles();
 
         Map<TIER, List<Question>> materials = new HashMap<>();
-        files.forEach((tier, o) -> materials.put(tier, questionService.setQuestions(tier, o)));
+        files.forEach((tier, o) -> materials.put(tier, this.setQuestions(tier, o)));
         return materials;
     }
 }

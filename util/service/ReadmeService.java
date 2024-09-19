@@ -13,7 +13,6 @@ public class ReadmeService {
 
     private final String README_PATH = "./READMETEST.md";
     private static ReadmeService readmeService;
-    private static QuestionService questionService;
 
     private ReadmeService() { }
 
@@ -27,7 +26,7 @@ public class ReadmeService {
     /**
      * 내용 입력.
      */
-    public StringBuilder createContent(List<Question> questions, StringBuilder contents) {
+    public void createContent(List<Question> questions, StringBuilder contents) {
         for (Question question : questions) {
             contents.append("- ")
                     .append(question.getTier()).append(question.getQuestionLevel()).append(" ")
@@ -37,7 +36,6 @@ public class ReadmeService {
                     .append(question.isComplete() ? ("`완료` " + question.getSince()) : "`진행중`")
                     .append(System.lineSeparator());
         }
-        return contents;
     }
 
     /**
