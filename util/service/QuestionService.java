@@ -92,7 +92,7 @@ public class QuestionService {
     /**
      * 파일내 주석 입력
      */
-    public List<Question> setQuestions (File[] files, TIER tier) {
+    public List<Question> setQuestions (TIER tier, File[] files) {
         List<Question> list = new ArrayList<>();
 
         for (File file : files) {
@@ -128,6 +128,19 @@ public class QuestionService {
                 e.printStackTrace();
             }
         }
+        sortQuestionsOrderBySince(list);
         return list;
+    }
+
+    /**
+     * 일자순으로 정렬.
+     */
+    private void sortQuestionsOrderBySince(List<Question> list) {
+        // 일자순으로 정렬
+        list.sort(Comparator.comparing(Question::getSince,
+                Comparator.nullsFirst(Comparator.naturalOrder())));
+
+        // 레벨순으로 정렬
+        list.sort(Comparator.comparing(Question::getQuestionLevel).reversed());
     }
 }

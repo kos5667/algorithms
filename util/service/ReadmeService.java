@@ -38,6 +38,9 @@ public class ReadmeService {
                     .append(question.isComplete() ? ("`완료` " + question.getSince()) : "`진행중`")
                     .append(System.lineSeparator());
         }
+        System.out.println("=============");
+        System.out.println(contents.toString());
+
         return contents.toString();
     }
 

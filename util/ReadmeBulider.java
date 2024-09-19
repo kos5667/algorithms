@@ -29,19 +29,16 @@ public class ReadmeBulider {
 //        List<Question> questions = questionService.setQuestions(temp, tier.orElse(null));
 //        content.append(readmeService.createContent(questions));
 
-        StringBuilder content = new StringBuilder();
-        System.out.println(content);
 //        write(read(content.toString()));
     }
 
     public static void read() {
         Map<TIER, File[]> files = questionService.getFiles();
-        System.out.println(files);
-        files.forEach((tier, o) -> {
-            List<Question> questions = questionService.setQuestions(o, tier);
-            String contents = readmeService.createContent(questions);
-            System.out.println(contents);
-            System.out.println("====================");
-        });
+
+        Map<TIER, List<Question>> content = new HashMap<>();
+        files.forEach((tier, o) -> content.put(tier, questionService.setQuestions(tier, o)));
+
+
+//        String contents = readmeService.createContent(questions);
     }
 }
