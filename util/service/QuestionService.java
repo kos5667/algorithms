@@ -26,8 +26,8 @@ public class QuestionService {
     /**
      * 하위 패키지 경로.
      */
-    public Map<String, String> getSubPackages(PLATFORM name) {
-        Map<String, String> subPackages = new HashMap<>();
+    public List<String> getSubPackages(PLATFORM name) {
+        List<String> subPackages = new ArrayList<>();
 
         String basePackage = "./algorithm/";
         File baseDir = new File(basePackage + name.name());
@@ -35,11 +35,14 @@ public class QuestionService {
             File[] files = baseDir.listFiles(File::isDirectory);
             if (files != null) {
                 for (File file : files) {
+                    System.out.println(file);
                     String subPackage = basePackage + name.name() + '/' + file.getName();
-                    subPackages.put(TIER.fromName(subPackage).name(), subPackage);
+                    subPackages.add(subPackage);
                 }
             }
         }
+        // TIER index 순으로 정렬.
+        subPackages.sort(Comparator.comparingInt(o -> TIER.fromName(o).getIndex()));
         return subPackages;
     }
 }

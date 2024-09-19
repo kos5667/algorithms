@@ -1,20 +1,26 @@
 package util.enums;
 
+import java.util.Arrays;
+
 public enum TIER {
 
-    BRONZE(1),
-    SILVER(2),
-    GOLD(3),
-    PLATINUM(4);
+    BRONZE(1, "Bronze"),
+    SILVER(2, "Silver"),
+    GOLD(3, "Gold"),
+    PLATINUM(4, "Platinum"),
+    DIAMOND(5, "Diamond");
 
     // Index
     private final int index;
+    private final String name;
 
-    TIER(int idx) {
+    TIER(int idx, String name) {
         this.index = idx;
+        this.name = name;
     }
 
-    int getIndex () { return index; };
+    public int getIndex() { return index; };
+    public String getName() { return name; }
 
     /**
      *
@@ -23,6 +29,18 @@ public enum TIER {
      */
     public String getEmoji(int level, int size) {
         return "<img src=\"https://static.solved.ac/tier_small/4.svg\" alt=\"4\">";
+    }
+
+    public static TIER fromName(String name) {
+        return Arrays.stream(TIER.values())
+                .filter(tier -> name.contains(tier.getName()))
+                .findFirst()
+                .orElse(null); // 해당 name이 없을 때 null을 반환
+    }
+
+    public static boolean isName(String name) {
+        return Arrays.stream(TIER.values())
+                .anyMatch(tier -> name.contains(tier.getName()));
     }
 }
 
