@@ -15,13 +15,15 @@ import java.util.*;
  * README 수정을 위한 문제를 도출하는 Service
  */
 public class QuestionService {
-
     private static QuestionService questionService;
+    private static PLATFORM platform;
 
     // Singleton Pattern 사용을 위한 constructor new Instance 제한.
     private QuestionService() { }
 
-    public static QuestionService getInstance() {
+    public static QuestionService getInstance(PLATFORM instanceBy) {
+        platform = instanceBy;
+
         if (questionService == null) {
             return new QuestionService();
         }
@@ -31,16 +33,16 @@ public class QuestionService {
     /**
      * 하위 패키지 경로.
      */
-    public List<String> getSubPackages(PLATFORM name) {
+    public List<String> getSubPackages() {
         List<String> subPackages = new ArrayList<>();
 
         String basePackage = "./algorithm/";
-        File baseDir = new File(basePackage + name.name());
+        File baseDir = new File(basePackage + platform.name());
         if (baseDir.exists() && baseDir.isDirectory()) {
             File[] files = baseDir.listFiles(File::isDirectory);
             if (files != null) {
                 for (File file : files) {
-                    String subPackage = basePackage + name.name() + '/' + file.getName();
+                    String subPackage = basePackage + platform.name() + '/' + file.getName();
                     subPackages.add(subPackage);
                 }
             }
@@ -70,7 +72,14 @@ public class QuestionService {
     }
 
     /**
-     * 파일내 주석 도출
+     * 파일내 주석 출력
+     */
+    public void getQuestions () {
+
+    }
+
+    /**
+     * 파일내 주석 입력
      */
     public List<Question> setQuestions (File[] files, TIER tier) {
         List<Question> list = new ArrayList<>();

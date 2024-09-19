@@ -1,8 +1,10 @@
 package util.service;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import util.enums.PLATFORM;
+import util.models.Question;
+
+import java.io.*;
+import java.util.List;
 
 /**
  * README를 직접적으로 수정하는 Service
@@ -11,6 +13,7 @@ public class ReadmeService {
 
     private final String README_PATH = "./READMETEST.md";
     private static ReadmeService readmeService;
+    private static QuestionService questionService;
 
     private ReadmeService() { }
 
@@ -21,9 +24,47 @@ public class ReadmeService {
         return readmeService;
     }
 
+    /**
+     * 내용 입력.
+     */
+    public String createContent(List<Question> questions) {
+        StringBuilder contents = new StringBuilder();
+        for (Question question : questions) {
+            contents.append("- ")
+                    .append(question.getTier()).append(question.getQuestionLevel()).append(" ")
+                    .append("[").append(question.getQuestionNo())
+                    .append("(").append(question.getQuestionTitle()).append(")").append("]")
+                    .append("(").append(question.getQuestionURL()).append(")")
+                    .append(question.isComplete() ? ("`완료` " + question.getSince()) : "`진행중`")
+                    .append(System.lineSeparator());
+        }
+        return contents.toString();
+    }
+
+    /**
+     * README 내용 복사
+     */
     public StringBuilder read() {
-        System.out.println(README_PATH);
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(README_PATH))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+//                System.out.println(line);
+                if (line.contains(PLATFORM.BAEKJOON.start())) {
+                    System.out.println(line);
+
+                }
+
+                if (line.contains(PLATFORM.BAEKJOON.end())) {
+
+                }
+
+                stringBuilder.append(line).append(System.lineSeparator());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder;
     }
 
     /**
