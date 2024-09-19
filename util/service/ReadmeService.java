@@ -33,7 +33,7 @@ public class ReadmeService {
                     .append("[").append(question.getQuestionNo())
                     .append("(").append(question.getQuestionTitle()).append(")").append("]")
                     .append("(").append(question.getQuestionURL()).append(")")
-                    .append(question.isComplete() ? ("`완료` " + question.getSince()) : "`진행중`")
+                    .append(question.isComplete() ? (" `완료` " + question.getSince()) : " `진행중` ")
                     .append(System.lineSeparator());
         }
     }
@@ -50,18 +50,19 @@ public class ReadmeService {
                     builder.append(line).append(System.lineSeparator());
                 }
                 if (line.contains(platform.start())) {
-                    skip = true;
                     builder.append(contents);
+                    skip = true;
                 }
                 if (line.contains(platform.end())) {
-                    builder.append(System.lineSeparator());
+                    builder.append(System.lineSeparator())
+                            .append(line)
+                            .append(System.lineSeparator());
                     skip = false;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(builder.toString());
         return builder.toString();
     }
 

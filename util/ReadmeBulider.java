@@ -1,9 +1,7 @@
 package util;
 
-import util.enums.ANNOTATION;
 import util.enums.PLATFORM;
 import util.enums.TIER;
-import util.enums.SORT;
 import util.models.Question;
 import util.service.QuestionService;
 import util.service.ReadmeService;
