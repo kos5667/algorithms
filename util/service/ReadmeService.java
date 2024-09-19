@@ -40,10 +40,6 @@ public class ReadmeService {
         return contents;
     }
 
-    private String setTitle(int n, String title) {
-        return "#".repeat(n) + title;
-    }
-
     /**
      * README 내용 복사
      */

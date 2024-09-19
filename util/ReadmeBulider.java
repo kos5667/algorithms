@@ -47,7 +47,6 @@ public class ReadmeBulider {
                             .append("\n"));
         });
 
-        System.out.println("=============");
         System.out.println(contents.toString());
     }
 }
