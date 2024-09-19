@@ -41,27 +41,23 @@ public class ReadmeService {
     /**
      * README 내용 복사
      */
-    public StringBuilder read() {
-        StringBuilder stringBuilder = new StringBuilder();
+    public String inputContent(String contents, PLATFORM platform) {
+        StringBuilder builder = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(README_PATH))){
             String line;
             while ((line = reader.readLine()) != null) {
-//                System.out.println(line);
-                if (line.contains(PLATFORM.BAEKJOON.start())) {
-                    System.out.println(line);
-
+                builder.append(line).append(System.lineSeparator());
+                if (line.contains(platform.start())) {
+                    builder.append(contents);
                 }
-
-                if (line.contains(PLATFORM.BAEKJOON.end())) {
-
+                if (line.contains(platform.end())) {
+                    builder.append(System.lineSeparator());
                 }
-
-                stringBuilder.append(line).append(System.lineSeparator());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return stringBuilder;
+        return builder.toString();
     }
 
     /**

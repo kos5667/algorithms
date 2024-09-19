@@ -1,32 +1,17 @@
 # Algorithm
-sds
-
 ## BaekJoon
 [//]: # ($BAEKJOON$START)
-
-### BRONZE
-- BRONZE5 [2744(대소문자 바꾸기)](#) `완료` 2024-03-12
-- BRONZE4 15552(빠른 A+B) `완료` 2022-03-16
-
-### SILVER
-- sdf
-
-### GOLD
-
 [//]: # ($BAEKJOON$END)
 
 ---
-
-
-
-[//]: # ($PROGRAMMERS$START)
-
 ## Programmers
-
+[//]: # ($PROGRAMMERS$START)
 [//]: # ($PROGRAMMERS$END)
 
 ---
 ## ETC
+[//]: # ($ETC$START)
+[//]: # ($ETC$END)
 
 ## Utils
 ### README 작성 자동화
