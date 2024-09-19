@@ -2,19 +2,16 @@ package util.enums;
 
 public enum TIER {
 
-    BRONZE(1, "\uD83E\uDD47"),
-    SILVER(2, "\uD83E\uDD47"),
-    GOLD(3, "\uD83E\uDD47"),
-    PLATINUM(4, "\uD83E\uDD47");
+    BRONZE(1),
+    SILVER(2),
+    GOLD(3),
+    PLATINUM(4);
 
     // Index
     private final int index;
-    // 이모지
-    private final String emoji;
 
-    TIER(int idx, String emoji) {
+    TIER(int idx) {
         this.index = idx;
-        this.emoji = emoji;
     }
 
     int getIndex () { return index; };
@@ -26,5 +23,20 @@ public enum TIER {
      */
     public String getEmoji(int level, int size) {
         return "<img src=\"https://static.solved.ac/tier_small/4.svg\" alt=\"4\">";
+    }
+}
+
+enum LEVEL {
+
+    ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5);
+
+    private final int level;
+
+    LEVEL(int level) {
+        this.level = level;
+    }
+
+    void getEmogi() {
+
     }
 }
