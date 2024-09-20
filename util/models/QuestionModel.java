@@ -107,7 +107,8 @@ public class QuestionModel {
     }
 
     public String getCompleteCode() {
-//        <code style="color: aqua">완료</code> 2024-03-12
-        return null;
+        return isComplete
+                ? "<code style=\"color: aquamarine\">완료</code> " + since
+                : "<code>진행중</code>";
     }
 }

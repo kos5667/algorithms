@@ -31,10 +31,7 @@ public class ReadmeService {
             contents.append("- ")
                     .append(questionModel.getEmoji()).append(" ")
                     .append(questionModel.getTitleWithURL()).append(" ")
-//                    .append("[").append(questionModel.getQuestionNo())
-//                    .append("(").append(questionModel.getQuestionTitle()).append(")").append("]")
-//                    .append("(").append(questionModel.getQuestionURL()).append(")")
-                    .append(questionModel.isComplete() ? (" `완료` " + questionModel.getSince()) : " `진행중` ")
+                    .append(questionModel.getCompleteCode())
                     .append(System.lineSeparator());
         }
     }
@@ -76,5 +73,15 @@ public class ReadmeService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setStyle(StringBuilder builder) {
+        String style = "img {"
+                + "width: 19px;"
+                + "height: 19px;"
+                + "margin-top: 4px;"
+                + "vertical-align: top;"
+                + "}";
+        builder.append(style);
     }
 }
