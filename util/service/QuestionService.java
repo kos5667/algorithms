@@ -4,7 +4,7 @@ import util.enums.ANNOTATION;
 import util.enums.PLATFORM;
 import util.enums.SORT;
 import util.enums.TIER;
-import util.models.Question;
+import util.models.QuestionModel;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -92,38 +92,38 @@ public class QuestionService {
     /**
      * 파일내 주석 입력
      */
-    public List<Question> setQuestions (TIER tier, File[] files) {
-        List<Question> list = new ArrayList<>();
+    public List<QuestionModel> setQuestions (TIER tier, File[] files) {
+        List<QuestionModel> list = new ArrayList<>();
 
         for (File file : files) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                Question question = new Question(tier, file);
+                QuestionModel questionModel = new QuestionModel(tier, file);
 
                 String line;
                 while ((line = reader.readLine()) != null) {
                     // 문제 번호
                     if (line.contains(ANNOTATION.QUESTION_NO.getAnnotation())) {
-                        question.setQuestionNo(line);
+                        questionModel.setQuestionNo(line);
                     }
                     // 문제 제목
                     if (line.contains(ANNOTATION.QUESTION_TITLE.getAnnotation())) {
-                        question.setQuestionTitle(line);
+                        questionModel.setQuestionTitle(line);
                     }
                     // 문제 레벨
                     if (line.contains(ANNOTATION.QUESTION_LEVEL.getAnnotation())) {
-                        question.setQuestionLevel(line);
+                        questionModel.setQuestionLevel(line);
                     }
                     // 완료 유무
                     if (line.contains(ANNOTATION.IS_COMPLETE.getAnnotation())) {
-                        question.setComplete(line);
+                        questionModel.setComplete(line);
                     }
                     // 일자
                     if (line.contains(ANNOTATION.SINCE.getAnnotation())) {
-                        question.setSince(line);
+                        questionModel.setSince(line);
                         break;
                     }
                 }
-                list.add(question);
+                list.add(questionModel);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -135,19 +135,19 @@ public class QuestionService {
     /**
      * 일자순으로 정렬.
      */
-    private void sortQuestionsOrderBySince(List<Question> list) {
+    private void sortQuestionsOrderBySince(List<QuestionModel> list) {
         // 일자순으로 정렬
-        list.sort(Comparator.comparing(Question::getSince,
+        list.sort(Comparator.comparing(QuestionModel::getSince,
                 Comparator.nullsFirst(Comparator.naturalOrder())));
 
         // 레벨순으로 정렬
-        list.sort(Comparator.comparing(Question::getQuestionLevel).reversed());
+        list.sort(Comparator.comparing(QuestionModel::getQuestionLevel).reversed());
     }
 
-    public Map<TIER, List<Question>> getMaterials() {
+    public Map<TIER, List<QuestionModel>> getMaterials() {
         Map<TIER, File[]> files = this.getFiles();
 
-        Map<TIER, List<Question>> materials = new HashMap<>();
+        Map<TIER, List<QuestionModel>> materials = new HashMap<>();
         files.forEach((tier, o) -> materials.put(tier, this.setQuestions(tier, o)));
         return materials;
     }

@@ -1,15 +1,16 @@
 package util.models;
 
 import util.enums.ANNOTATION;
+import util.enums.RANK;
 import util.enums.TIER;
 
 import java.io.File;
 
-public class Question {
+public class QuestionModel {
 
     private final File file;
 
-    private TIER tier;
+    private final TIER tier;
 
     // 문제 번호
     private int questionNo;
@@ -26,7 +27,7 @@ public class Question {
     // 일자
     private String since;
 
-    public Question(TIER tier, File file) {
+    public QuestionModel(TIER tier, File file) {
         this.tier = tier;
         this.file = file;
     }
@@ -90,31 +91,14 @@ public class Question {
         return txt.substring(txt.indexOf(annotation) + annotation.length()).trim();
     }
 
-    /**
-     * TODO: 이미지 찾기.
-     */
     public String getEmoji() {
-        String alt = getTier().name() + getQuestionLevel();
-        String img = "4";
-        return "<img src=\"https://static.solved.ac/tier_small/"
-             + img + ".svg\" alt=\"" + alt + "\">";
-//        return "<img src=\"https://static.solved.ac/tier_small/4.svg\" alt=\"4\">";
+        System.out.println(getImageOfTier());
+        String alt = tier.name() + questionLevel;
+        String img = getImageOfTier().getCode();
+        return "<img src=\"https://static.solved.ac/tier_small/" + img + ".svg\" alt=\"" + alt + "\">";
     }
 
-    private String getImageOfTier() {
-        switch (getTier()) {
-            case BRONZE:
-                return null;
-            case SILVER:
-                return null;
-            case GOLD:
-                return null;
-            case PLATINUM:
-                return null;
-            case DIAMOND:
-                return null;
-            default:
-                return null;
-        }
+    private RANK getImageOfTier() {
+        return tier.getRank(questionLevel);
     }
 }
