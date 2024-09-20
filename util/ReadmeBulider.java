@@ -2,7 +2,7 @@ package util;
 
 import util.enums.PLATFORM;
 import util.enums.TIER;
-import util.models.Question;
+import util.models.QuestionModel;
 import util.service.QuestionService;
 import util.service.ReadmeService;
 
@@ -29,14 +29,14 @@ public class ReadmeBulider {
     }
 
     public static String createContent() {
-        Map<TIER, List<Question>> materials = questionService.getMaterials();
+        Map<TIER, List<QuestionModel>> materials = questionService.getMaterials();
 
         StringBuilder contents = new StringBuilder();
         Arrays.stream(TIER.values()).forEach(tier -> {
-            List<Question> questions = materials.get(tier);
-            if (questions.isEmpty()) return;
+            List<QuestionModel> questionModels = materials.get(tier);
+            if (questionModels.isEmpty()) return;
 
-            readmeService.createContent(questions,
+            readmeService.createContent(questionModels,
                     contents.append(System.lineSeparator())
                             .append("### ")
                             .append(tier.name())
