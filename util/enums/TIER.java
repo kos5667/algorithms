@@ -1,8 +1,10 @@
 package util.enums;
 
+import util.enums.interfaces.RankOperator;
+
 import java.util.Arrays;
 
-public enum TIER {
+public enum TIER implements RankOperator {
 
     BRONZE(1, "Bronze"),
     SILVER(2, "Silver"),
@@ -10,10 +12,8 @@ public enum TIER {
     PLATINUM(4, "Platinum"),
     DIAMOND(5, "Diamond");
 
-    // Index
     private final int index;
     private final String name;
-
     TIER(int idx, String name) {
         this.index = idx;
         this.name = name;
@@ -33,19 +33,12 @@ public enum TIER {
         return Arrays.stream(TIER.values())
                 .anyMatch(tier -> name.contains(tier.getName()));
     }
-}
 
-enum LEVEL {
-
-    ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5);
-
-    private final int level;
-
-    LEVEL(int level) {
-        this.level = level;
-    }
-
-    void getEmogi() {
-
+    @Override
+    public RANK getRank(int level) {
+        if (level == 0) {
+            return RANK.UNRATED;
+        }
+        return RANK.valueOf(this.name() + level);
     }
 }
