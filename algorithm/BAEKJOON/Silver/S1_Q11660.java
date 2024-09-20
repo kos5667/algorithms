@@ -6,9 +6,11 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * 11660 | 구간 합 구하기 2
- * 시간 제한 1초(1억 연산 이하) | 메모리 제한 128 MB | 실버1
- * 128 MB = 128,000 KB, 1s = 1,000,000 ms
+ * @questionNo 11660
+ * @questionTitle 구간 합 구하기 2
+ * @questionLevel 1
+ * @isComplete true
+ * @since 2024-09-14
  */
 public class S1_Q11660 {
 

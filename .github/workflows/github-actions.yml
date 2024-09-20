@@ -23,8 +23,11 @@ jobs:
 
       # 소스 파일을 컴파일 (ReadmeBuilder.java 파일을 컴파일)
       - name: Compile Java class
-        run: javac -d out production/algorithms/util/ReadmeBuilder.java
+        run: javac -d out ./algorithms/util/ReadmeBuilder.java
 
       # 컴파일된 클래스를 실행
       - name: Run Java class
         run: java -cp out util.ReadmeBuilder
+
+      # 수정된 파일이 있으면 commit을 하고.
+      # 수정된 파일이 없으면 -
