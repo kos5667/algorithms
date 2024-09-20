@@ -35,7 +35,6 @@ public class ReadmeBulider {
         StringBuilder contents = new StringBuilder();
         Arrays.stream(TIER.values()).forEach(tier -> {
             List<QuestionModel> questionModels = materials.get(tier);
-            System.out.println(questionModels);
             if (questionModels == null || questionModels.isEmpty()) return;
 
             readmeService.createContent(questionModels,
