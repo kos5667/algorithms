@@ -26,8 +26,8 @@ jobs:
         run: javac -d out util/ReadmeBulider.java
 
       # 컴파일된 클래스를 실행
-      - name: Run Java class
-        run: java -cp out production/algorithms/util/ReadmeBulider
+#      - name: Run Java class
+#        run: java -cp out production/algorithms/util/ReadmeBulider
 
 
       # 수정된 파일이 있으면 commit을 하고.
