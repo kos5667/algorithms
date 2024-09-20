@@ -101,4 +101,13 @@ public class QuestionModel {
     private RANK getImageOfTier() {
         return tier.getRank(questionLevel);
     }
+
+    public String getTitleWithURL() {
+        return "<a href=\""+ getQuestionURL() +"\">"+ questionNo +"(" + questionTitle + ")</a>";
+    }
+
+    public String getCompleteCode() {
+//        <code style="color: aqua">완료</code> 2024-03-12
+        return null;
+    }
 }

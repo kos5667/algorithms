@@ -29,10 +29,11 @@ public class ReadmeService {
     public void createContent(List<QuestionModel> questionModels, StringBuilder contents) {
         for (QuestionModel questionModel : questionModels) {
             contents.append("- ")
-                    .append(questionModel.getEmoji())
-                    .append(" ").append("[").append(questionModel.getQuestionNo())
-                    .append("(").append(questionModel.getQuestionTitle()).append(")").append("]")
-                    .append("(").append(questionModel.getQuestionURL()).append(")")
+                    .append(questionModel.getEmoji()).append(" ")
+                    .append(questionModel.getTitleWithURL()).append(" ")
+//                    .append("[").append(questionModel.getQuestionNo())
+//                    .append("(").append(questionModel.getQuestionTitle()).append(")").append("]")
+//                    .append("(").append(questionModel.getQuestionURL()).append(")")
                     .append(questionModel.isComplete() ? (" `완료` " + questionModel.getSince()) : " `진행중` ")
                     .append(System.lineSeparator());
         }
