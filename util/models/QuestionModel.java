@@ -92,7 +92,6 @@ public class QuestionModel {
     }
 
     public String getEmoji() {
-        System.out.println(getImageOfTier());
         String alt = tier.name() + questionLevel;
         String img = getImageOfTier().getCode();
         return "<img src=\"https://static.solved.ac/tier_small/" + img + ".svg\" alt=\"" + alt + "\">";
