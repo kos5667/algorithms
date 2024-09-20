@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class ReadmeService {
 
-    private final String README_PATH = "./READMETEST.md";
+    private final String README_PATH = "./README.md";
     private static ReadmeService readmeService;
 
     private ReadmeService() { }
