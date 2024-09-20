@@ -10,7 +10,8 @@ import java.io.*;
 import java.util.*;
 
 /**
- *
+ * TODO: 문제풀이 TODO List
+ * TODO: 다른 Platform 적용.
  */
 public class ReadmeBulider {
     static QuestionService questionService = null;
