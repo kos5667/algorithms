@@ -3,9 +3,11 @@ package Silver;
 import java.util.*;
 
 /**
- * 14888 | 연산자 끼워넣기
- * 시간 제한 1초(1억 연산 이하) | 메모리 제한 128 MB | 실버1
- * 128 MB = 128,000 KB, 1s = 1,000,000 ms
+ * @questionNo 14888
+ * @questionTitle 연산자 끼워넣기
+ * @questionLevel 1
+ * @isComplete true
+ * @since 2023-03-29
  */
 public class S1_Q14888 {
 
