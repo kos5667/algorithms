@@ -92,11 +92,10 @@ public class QuestionModel {
     }
 
     public String getEmoji() {
+        String url = "https://static.solved.ac/tier_small/";
         String alt = tier.name() + questionLevel;
         String img = getImageOfTier().getCode();
-        return "<img src=\"https://static.solved.ac/tier_small/" + img + ".svg\" "
-                + "style=\"width: 22px; height: 22px; position: relative; top: 5px;\""
-                + "alt=\"" + alt + "\">";
+        return "<img src=\"" + url + img + ".svg\" style=\"width: 22px; height: 22px;\" alt=\"" + alt + "\">";
     }
 
     private RANK getImageOfTier() {
