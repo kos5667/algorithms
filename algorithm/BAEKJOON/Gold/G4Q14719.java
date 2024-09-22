@@ -3,10 +3,13 @@ package Gold;
 import java.util.Scanner;
 
 /**
- * 14719 빗물
- * 골드Ⅴ
+ * @questionNo 14719
+ * @questionTitle 빗물
+ * @questionLevel 5
+ * @isComplete false
+ * @since 2022-03-13
  */
-public class G4_Q14719 {
+public class G4Q14719 {
 
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {

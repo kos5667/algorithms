@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * @isComplete false
  * @since 2024-09-14
  */
-public class G3_Q10986 {
+public class G3Q10986 {
 
     /**
      * 직접 구현
