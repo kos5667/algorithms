@@ -30,12 +30,9 @@
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/11660">11660(구간 합 구하기 2)</a> <code style="color: aquamarine">완료</code> 2024-09-14
 
 ### GOLD
+- <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/14719">14719(빗물)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/2504">2504(괄호의 값)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/13.svg" style="width: 22px; height: 22px;" alt="GOLD3"> <a href="https://www.acmicpc.net/problem/10986">10986(나머지 합)</a> <code>진행중</code>
-- <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="GOLD0"> <a href="#">0(null)</a> <code>진행중</code>
-
-### DIAMOND
-- <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="DIAMOND0"> <a href="#">0(null)</a> <code>진행중</code>
 
 [//]: # ($BAEKJOON$END)
 
