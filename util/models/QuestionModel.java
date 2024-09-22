@@ -94,7 +94,9 @@ public class QuestionModel {
     public String getEmoji() {
         String alt = tier.name() + questionLevel;
         String img = getImageOfTier().getCode();
-        return "<img src=\"https://static.solved.ac/tier_small/" + img + ".svg\" alt=\"" + alt + "\">";
+        return "<img src=\"https://static.solved.ac/tier_small/" + img + ".svg\" "
+                + "style=\"width: 22px; height: 22px; position: relative; top: 5px;\""
+                + "alt=\"" + alt + "\">";
     }
 
     private RANK getImageOfTier() {

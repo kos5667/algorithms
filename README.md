@@ -64,12 +64,3 @@
 ## Utils
 ### README 작성 자동화
 ### Github Action을 이용한 자동화 실행.
-
-<style>
-    img {
-        width: 19px;
-        height: 19px;
-        margin-top: 4px;
-        vertical-align: top;
-    }
-</style>
