@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * @isComplete true
  * @since 2024-09-14
  */
-public class S1_Q11660 {
+public class S1Q11660 {
 
     /**
      * 직접 구현

@@ -3,12 +3,14 @@ package Silver;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/** (진행중)
- * 1934 그림
- * 시간 제한 2초(2억 연산 이하) | 메모리 제한 128 MB | 실버 1
- * 128 MB = 128000 KB, 0.5s = 500000 ms
+/**
+ * @questionNo 1926
+ * @questionTitle 그림
+ * @questionLevel 1
+ * @isComplete false
+ * @since 2022-03-16
  */
-public class Q1926 {
+public class S1Q1926 {
     static ArrayList<Integer> result = new ArrayList<>();
     public static void main(String[] args) {
 //        ArrayList<int[][]> painting = painting();

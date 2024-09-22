@@ -1,12 +1,15 @@
-package Silver;
+package Bronze;
 
 import java.util.*;
 
 /**
- * 2581 소수
- * 실버Ⅴ
+ * @questionNo 2581
+ * @questionTitle 소수
+ * @questionLevel 2
+ * @isComplete true
+ * @since 2022-03-16
  */
-public class Q2581 {
+public class B2Q2581 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
             int m=scan.nextInt();

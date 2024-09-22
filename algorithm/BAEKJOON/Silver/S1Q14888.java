@@ -6,10 +6,10 @@ import java.util.*;
  * @questionNo 14888
  * @questionTitle 연산자 끼워넣기
  * @questionLevel 1
- * @isComplete true
+ * @isComplete false
  * @since 2023-03-29
  */
-public class S1_Q14888 {
+public class S1Q14888 {
 
 	/**
 	 * @since 2023-03-28

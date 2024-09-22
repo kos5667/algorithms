@@ -1,13 +1,15 @@
-package Silver;
+package Gold;
 
 import java.util.Stack;
 
 /**
- * 2504 괄호의 값
- * 실버 1
+ * @questionNo 2504
+ * @questionTitle 괄호의 값
+ * @questionLevel 5
+ * @isComplete false
  * @since 2023-03-29
  */
-public class Q2504 {
+public class G5Q2504 {
     /**
      * ‘()’ 인 괄호열의 값은 2이다.
      * ‘[]’ 인 괄호열의 값은 3이다.

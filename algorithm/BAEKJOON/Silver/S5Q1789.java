@@ -3,11 +3,13 @@ package Silver;
 import java.util.*;
 
 /**
- * 1789
- * 수들의 합
- * 실버Ⅴ
+ * @questionNo 1789
+ * @questionTitle 수들의 합
+ * @questionLevel 5
+ * @isComplete true
+ * @since 2022-03-15
  */
-public class Q1789 {
+public class S5Q1789 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
             long s = scan.nextLong();

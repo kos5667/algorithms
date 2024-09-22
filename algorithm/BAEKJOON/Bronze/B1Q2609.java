@@ -1,12 +1,15 @@
-package Silver;
+package Bronze;
 
 import java.util.*;
 
 /**
- * 최대공약수와 최소공배수
- * 2609 : 실버Ⅴ
+ * @questionNo 2609
+ * @questionTitle 최대공약수와 최소공배수
+ * @questionLevel 1
+ * @isComplete true
+ * @since 2022-03-14
  */
-public class Q2609 {
+public class B1Q2609 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
             int num1 = scan.nextInt();

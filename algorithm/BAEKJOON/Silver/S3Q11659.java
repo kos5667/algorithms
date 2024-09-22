@@ -6,12 +6,13 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /**
- * @question 11659 | 구간 합 구하기 4
- * @since 2024-09-12
- * 시간 제한 0.5초(5000만 연산 이하) | 메모리 제한 128 MB | 실버3
- * 128 MB = 128000 KB, 0.5s = 500000 ms
+ * @questionNo 11659
+ * @questionTitle 구간 합 구하기 4
+ * @questionLevel 3
+ * @isComplete true
+ * @since 2024-08-19
  */
-public class S3_Q11659 {
+public class S3Q11659 {
     /**
      * 복습
      */
