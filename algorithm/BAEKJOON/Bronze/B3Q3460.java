@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @isComplete true
  * @since 2022-03-12
  */
-public class B3_Q3460 {
+public class B3Q3460 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
             int t = scan.nextInt();

@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
  * @isComplete true
  * @since 2024-08-18
  */
-public class B4_Q11720 {
+public class B4Q11720 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());

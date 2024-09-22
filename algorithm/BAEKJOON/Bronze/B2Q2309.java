@@ -9,7 +9,7 @@ import java.util.*;
  * @isComplete true
  * @since 2022-03-14
  */
-public class B2_Q2309 {
+public class B2Q2309 {
     public static void main(String[] args) {
         // answer1();
         answer2();

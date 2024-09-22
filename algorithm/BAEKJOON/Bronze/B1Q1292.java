@@ -1,13 +1,16 @@
-package Silver;
+package Bronze;
 
 import java.io.*;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 /**
- * 1292 쉽게 푸는 문제
- * 실버Ⅴ
+ * @questionNo 11660
+ * @questionTitle 쉽게 푸는 문제
+ * @questionLevel 1
+ * @isComplete true
+ * @since 2022-03-16
  */
-public class Q1292 {
+public class B1Q1292 {
     public static void main(String[] args) throws NumberFormatException, IOException {
         // 속도 비교
         answer1(); // 156ms

@@ -9,7 +9,7 @@ import java.util.*;
  * @isComplete true
  * @since 2022-03-10
  */
-public class B3_Q10818 {
+public class B3Q10818 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
             int t = scan.nextInt();

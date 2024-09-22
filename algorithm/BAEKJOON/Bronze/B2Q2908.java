@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @isComplete true
  * @since 2022-02-28
  */
-public class B2_Q2908 {
+public class B2Q2908 {
 
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {

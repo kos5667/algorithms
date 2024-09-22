@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * @isComplete true
  * @since 2024-08-18
  */
-public class B1_Q1546 {
+public class B1Q1546 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
