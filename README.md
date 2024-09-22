@@ -14,13 +14,13 @@
 - <img src="https://static.solved.ac/tier_small/4.svg" style="width: 22px; height: 22px;" alt="BRONZE2"> <a href="https://www.acmicpc.net/problem/10870">10870(피보나치 수 5)</a> <code style="color: aquamarine">완료</code> 2022-03-13
 - <img src="https://static.solved.ac/tier_small/4.svg" style="width: 22px; height: 22px;" alt="BRONZE2"> <a href="https://www.acmicpc.net/problem/2309">2309(일곱 난쟁이)</a> <code style="color: aquamarine">완료</code> 2022-03-14
 - <img src="https://static.solved.ac/tier_small/4.svg" style="width: 22px; height: 22px;" alt="BRONZE2"> <a href="https://www.acmicpc.net/problem/10809">10809(알파벳 찾기)</a> <code style="color: aquamarine">완료</code> 2024-08-18
+- <img src="https://static.solved.ac/tier_small/5.svg" style="width: 22px; height: 22px;" alt="BRONZE1"> <a href="https://www.acmicpc.net/problem/11660">11660(쉽게 푸는 문제)</a> <code style="color: aquamarine">완료</code> 2022-03-16
+- <img src="https://static.solved.ac/tier_small/5.svg" style="width: 22px; height: 22px;" alt="BRONZE1"> <a href="https://www.acmicpc.net/problem/2693">2693(N번째 큰 수)</a> <code style="color: aquamarine">완료</code> 2024-03-15
 - <img src="https://static.solved.ac/tier_small/5.svg" style="width: 22px; height: 22px;" alt="BRONZE1"> <a href="https://www.acmicpc.net/problem/1546">1546(평균 구하기)</a> <code style="color: aquamarine">완료</code> 2024-08-18
 
 ### SILVER
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/14888">14888(연산자 끼워넣기)</a> <code style="color: aquamarine">완료</code> 2023-03-29
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/11660">11660(구간 합 구하기 2)</a> <code style="color: aquamarine">완료</code> 2024-09-14
-- <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="SILVER0"> <a href="#">0(null)</a> <code>진행중</code>
-- <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="SILVER0"> <a href="#">0(null)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="SILVER0"> <a href="#">0(null)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="SILVER0"> <a href="#">0(null)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="SILVER0"> <a href="#">0(null)</a> <code>진행중</code>
