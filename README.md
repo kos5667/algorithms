@@ -1,6 +1,3 @@
-# Algorithm
-## BaekJoon
-[//]: # ($BAEKJOON$START)
 
 ### BRONZE
 - <img src="https://static.solved.ac/tier_small/1.svg" style="width: 22px; height: 22px;" alt="BRONZE5"> <a href="https://www.acmicpc.net/problem/2744">2744(대소문자 바꾸기)</a> <code style="color: aquamarine">완료</code> 2024-03-12
@@ -32,32 +29,4 @@
 ### GOLD
 - <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/14719">14719(빗물)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/2504">2504(괄호의 값)</a> <code>진행중</code>
-- <img src="https://static.solved.ac/tier_small/13.svg" style="width: 22px; height: 22px;" alt="GOLD3"> <a href="https://www.acmicpc.net/problem/10986">10986(나머지 합)</a> <code>진행중</code>
-
-[//]: # ($BAEKJOON$END)
-
-### TODO
-
-
----
-## Programmers
-[//]: # ($PROGRAMMERS$START)
-
-- WoowaBrothers1
-- WoowaBrothers2
-- WoowaBrothers4
-- WoowaBrothers5
-- WoowaBrothers7
-- Codility_Demo
-
-[//]: # ($PROGRAMMERS$END)
-
----
-## ETC
-[//]: # ($ETC$START)
-
-[//]: # ($ETC$END)
-
-## Utils
-### README 작성 자동화
-### Github Action을 이용한 자동화 실행.
+- <img src="https://static.solved.ac/tier_small/13.svg" style="width: 22px; height: 22px;" alt="GOLD3"> <a href="https://www.acmicpc.net/problem/10986">10986(나머지 합)</a> <code style="color: aquamarine">완료</code> 2024-09-23
