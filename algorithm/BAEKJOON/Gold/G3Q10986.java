@@ -7,8 +7,8 @@ import java.util.Scanner;
  * @questionNo 10986
  * @questionTitle 나머지 합
  * @questionLevel 3
- * @isComplete false
- * @since 2024-09-14
+ * @isComplete true
+ * @since 2024-09-23
  */
 public class G3Q10986 {
 
