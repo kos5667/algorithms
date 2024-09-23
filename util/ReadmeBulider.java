@@ -23,9 +23,12 @@ public class ReadmeBulider {
         questionService = QuestionService.getInstance(PLATFORM.BAEKJOON);
         readmeService = ReadmeService.getInstance();
 
-        String content = "";
-        content = createContent();
-        content = inputContent(content);
+        // Create Content
+        String content = createContent();
+
+        // Input Content
+        readmeService.inputContent(content, PLATFORM.BAEKJOON);
+        // Update README
         readmeService.write(content);
     }
 
@@ -44,9 +47,5 @@ public class ReadmeBulider {
                             .append("\n"));
         });
         return contents.toString();
-    }
-
-    public static String inputContent(String content) {
-        return readmeService.inputContent(content, PLATFORM.BAEKJOON);
     }
 }

@@ -17,16 +17,16 @@ import java.util.*;
  */
 public class QuestionService {
     private static QuestionService questionService;
-    private static PLATFORM platform;
+    private final PLATFORM platform;
 
     // Singleton Pattern 사용을 위한 constructor new Instance 제한.
-    private QuestionService() { }
+    private QuestionService(PLATFORM platform) {
+        this.platform = platform;
+    }
 
-    public static QuestionService getInstance(PLATFORM instanceBy) {
-        platform = instanceBy;
-
-        if (questionService == null) {
-            return new QuestionService();
+    public static QuestionService getInstance(PLATFORM platform) {
+        if (questionService == null || questionService.platform != platform) {
+            return new QuestionService(platform);
         }
         return questionService;
     }
