@@ -25,7 +25,7 @@ public class G3Q10986 {
             s[i] = i == 0 ? sc.nextInt() : s[i-1] + sc.nextInt();
         }
 
-        long[] c = new long[m];
+        int[] c = new int[m];
         for (long i : s) {
             c[(int) (i % m)]++;
         }
