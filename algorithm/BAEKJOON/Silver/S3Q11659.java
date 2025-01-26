@@ -13,8 +13,9 @@ import java.util.StringTokenizer;
  * @since 2024-08-19
  */
 public class S3Q11659 {
+
     /**
-     * 복습
+     *
      */
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,18 +25,47 @@ public class S3Q11659 {
         int m = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
-        long[] sum = new long[n+1];
-        for (int i=0; i < n; i++) {
-            sum[i+1] = sum[i] + Integer.parseInt(st.nextToken());
+        long[] arr = new long[n+1];
+        for (int i=0; i<n; i++) {
+            arr[i+1] = i == 0 ? Integer.parseInt(st.nextToken()) : arr[i] + Integer.parseInt(st.nextToken());
         }
 
-        for (int i=0; i < m; i++) {
+        long[] sum = new long[m];
+        for (int i=0; i<m; i++) {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            System.out.println(sum[b] - sum[a-1]);
+            sum[i] = arr[b] - arr[a-1];
+        }
+
+        for (int i=0; i<sum.length; i++) {
+            System.out.println(sum[i]);
         }
     }
+
+    /**
+     * 복습 1
+     */
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//
+//        int n = Integer.parseInt(st.nextToken());
+//        int m = Integer.parseInt(st.nextToken());
+//
+//        st = new StringTokenizer(br.readLine());
+//        long[] sum = new long[n+1];
+//        for (int i=0; i < n; i++) {
+//            sum[i+1] = sum[i] + Integer.parseInt(st.nextToken());
+//        }
+//
+//        for (int i=0; i < m; i++) {
+//            st = new StringTokenizer(br.readLine());
+//            int a = Integer.parseInt(st.nextToken());
+//            int b = Integer.parseInt(st.nextToken());
+//            System.out.println(sum[b] - sum[a-1]);
+//        }
+//    }
 
     /**
      * 직접 구현
