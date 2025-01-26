@@ -1,6 +1,6 @@
 package Gold;
 
-import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -12,30 +12,83 @@ import java.util.Scanner;
  */
 public class G3Q10986 {
 
-    /** 1 5 3 2 5
-     * 직접 구현
-     */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        long[] s = new long[n];
+        long[] arr = new long[n];
         for (int i=0; i<n; i++) {
-            s[i] = i == 0 ? sc.nextInt() : s[i-1] + sc.nextInt();
+            arr[i] = i == 0 ? sc.nextInt() : arr[i-1] + sc.nextInt();
         }
 
-        int[] c = new int[m];
-        for (long i : s) {
-            c[(int) (i % m)]++;
+        long[] d = new long[m];
+        for(long i : arr) {
+            d[(int) (i % m)]++;
         }
 
-        long answer = c[0];
-        for (int i=0; i<m; i++) {
-            answer += c[i] * (c[i] - 1) / 2;
+        long answer = d[0];
+        for (long i : d) {
+            answer += i * (i - 1) / 2;
         }
         System.out.println(answer);
     }
+
+//    /**
+//     * 시간초과....
+//     * @param args
+//     */
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        int m = sc.nextInt();
+//
+//        long[] arr = new long[n];
+//        for (int i=0; i<n; i++) {
+//            arr[i] = i == 0 ? sc.nextInt() : arr[i-1] + sc.nextInt();
+//        }
+//
+//        int answer = 0;
+//        long [] con = new long[n];
+//        for (int i=0; i<arr.length; i++) {
+//            long num = arr[i] % m;
+//            if (num == 0) answer++;
+//            con[i] = arr[i] % m;
+//        }
+//
+//        long[] param = Arrays.stream(con).distinct().toArray();
+//        for (int i=0; i<param.length; i++) {
+//            long num = param[i];
+//            int count = (int) Arrays.stream(con).filter(j -> (long) j == num).count();
+//            answer += count * (count - 1) / 2;
+//        }
+//        System.out.println(answer);
+//    }
+
+    /** 1 5 3 2 5
+     * 직접 구현
+     */
+//    public static void main(String[] args) throws IOException {
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        int m = sc.nextInt();
+//
+//        long[] s = new long[n];
+//        for (int i=0; i<n; i++) {
+//            s[i] = i == 0 ? sc.nextInt() : s[i-1] + sc.nextInt();
+//        }
+//
+//        int[] c = new int[m];
+//        for (long i : s) {
+//            c[(int) (i % m)]++;
+//        }
+//
+//        long answer = c[0];
+//        for (int i=0; i<m; i++) {
+//            answer += c[i] * (c[i] - 1) / 2;
+//        }
+//        System.out.println(answer);
+//    }
 
     /**
      * 교제
