@@ -9,6 +9,9 @@ import java.util.Scanner;
  * @questionLevel 3
  * @isComplete true
  * @since 2024-09-23
+ * @example
+ *  - 5 3 | 1 2 3 1 2
+ *  - 8 3 | 1 2 4 5 6 3 9 4
  */
 public class G3Q10986 {
 
