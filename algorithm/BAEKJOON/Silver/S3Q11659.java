@@ -3,6 +3,7 @@ package Silver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /**
@@ -23,28 +24,22 @@ public class S3Q11659 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
 
+        st = new StringTokenizer(br.readLine());
         long[] arr = new long[n+1];
-        for (int i=0; i<n; i++) {
-            arr[i+1] = i == 0 ? Integer.parseInt(st.nextToken()) : arr[i] + Integer.parseInt(st.nextToken());
+        for (int i=1; i<=n; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            arr[i] = i == 1 ? num : arr[i-1] + num;
         }
 
         for (int i=0; i<m; i++) {
             st = new StringTokenizer(br.readLine());
-            int a = Integer.parseInt(st.nextToken());
-            int b = Integer.parseInt(st.nextToken());
-            System.out.println(arr[b] - arr[a-1]);
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
+            System.out.println(arr[y] - arr[x -1]);
         }
-
-        // 5 4 3 2 1
-        // 5 9 12 14 15
-        // 1~3 12
-        // 2~4 9
-        // 5~5 1
     }
 
 
