@@ -26,6 +26,7 @@
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/1926">1926(그림)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/14888">14888(연산자 끼워넣기)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/11660">11660(구간 합 구하기 2)</a> <code style="color: aquamarine">완료</code> 2024-09-14
+- <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="SILVER0"> <a href="#">0(null)</a> <code>진행중</code>
 
 ### GOLD
 - <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/14719">14719(빗물)</a> <code>진행중</code>
