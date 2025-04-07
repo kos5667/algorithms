@@ -1,7 +1,11 @@
 package Gold;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * @questionNo 10986
@@ -15,24 +19,29 @@ import java.util.Scanner;
  */
 public class G3Q10986 {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        long[] arr = new long[n];
-        for (int i=0; i<n; i++) {
-            arr[i] = i == 0 ? sc.nextInt() : arr[i-1] + sc.nextInt();
+        st = new StringTokenizer(br.readLine());
+        long[] arr = new long[n+1];
+        for (int i=1; i<=n; i++) {
+            int num = Integer.parseInt(st.nextToken());
+            arr[i] = i == 1 ? num : arr[i-1] + num;
         }
 
-        long[] d = new long[m];
-        for(long i : arr) {
-            d[(int) (i % m)]++;
+        int answer = 0;
+        long[] sum = new long[m];
+        for (int i=1; i<=n; i++) {
+            int num = (int) (arr[i]%m);
+            if (num == 0) answer++;
+            sum[num]++;
         }
 
-        long answer = d[0];
-        for (long i : d) {
-            answer += i * (i - 1) / 2;
+        for (int i=0; i<m; i++) {
+            answer += (int) (sum[i] * (sum[i] - 1) / 2);
         }
         System.out.println(answer);
     }
