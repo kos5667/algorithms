@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
@@ -13,6 +12,10 @@ import java.util.StringTokenizer;
  * @questionLevel 3
  * @isComplete true
  * @since 2024-09-23
+ * @desription
+ * 수 N개 A1, A2, ..., An이 주어진다. 이때, 연속된 부분 구간의 합이 M으로 나누어 떨어지는 구간의 개수를 구하는 프로그램을 작성하시오.
+ * 즉, Ai + ... + Aj (i ≤ j) 의 합이 M으로 나누어 떨어지는 (i, j) 쌍의 개수를 구해야 한다.
+ *
  * @example
  *  - 5 3 | 1 2 3 1 2
  *  - 8 3 | 1 2 4 5 6 3 9 4
@@ -26,25 +29,65 @@ public class G3Q10986 {
         int m = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
-        long[] arr = new long[n+1];
-        for (int i=1; i<=n; i++) {
+        long[] arr = new long[n];
+        for (int i=0; i<n; i++) {
             int num = Integer.parseInt(st.nextToken());
-            arr[i] = i == 1 ? num : arr[i-1] + num;
+            arr[i] = i == 0 ? num : num + arr[i-1];
         }
 
         int answer = 0;
-        long[] sum = new long[m];
-        for (int i=1; i<=n; i++) {
-            int num = (int) (arr[i]%m);
+        long[] cnt = new long[m];
+        for (int i=0; i<n; i++) {
+            long num = arr[i] % 3;
             if (num == 0) answer++;
-            sum[num]++;
+
+            /**
+             * 경우의 수 구하기: 2쌍을 이루는 경우는 의 수 공식 ₃C₂가 적용될 수 있다.
+             * 3 * (3-1) / 2 = 3
+             * 2 * (2-1) / 2 = 1
+             *
+             * 배열 : 1 2 3 1 2
+             * 합배열: 1 3 6 7 9, M: 3
+             * (3+6)%3 = 0
+             * (3+9)%3 = 0
+             * (6+9)%3 = 0
+             *
+             * (1+2), (1+3)
+             *
+             *
+             */
+            cnt[(int) num]++;
         }
 
-        for (int i=0; i<m; i++) {
-            answer += (int) (sum[i] * (sum[i] - 1) / 2);
-        }
-        System.out.println(answer);
+        Arrays.stream(cnt).forEach(System.out::println);
     }
+
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int n = Integer.parseInt(st.nextToken());
+//        int m = Integer.parseInt(st.nextToken());
+//
+//        st = new StringTokenizer(br.readLine());
+//        long[] arr = new long[n+1];
+//        for (int i=1; i<=n; i++) {
+//            int num = Integer.parseInt(st.nextToken());
+//            arr[i] = i == 1 ? num : arr[i-1] + num;
+//        }
+//
+//        int answer = 0;
+//        long[] sum = new long[m];
+//        for (int i=1; i<=n; i++) {
+//            int num = (int) (arr[i]%m);
+//            if (num == 0) answer++;
+//            sum[num]++;
+//        }
+//
+//        for (int i=0; i<m; i++) {
+//            answer += (int) (sum[i] * (sum[i] - 1) / 2);
+//        }
+//        System.out.println(answer);
+//    }
 
 //    /**
 //     * 시간초과....
