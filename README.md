@@ -22,6 +22,7 @@
 ### SILVER
 - <img src="https://static.solved.ac/tier_small/6.svg" style="width: 22px; height: 22px;" alt="SILVER5"> <a href="https://www.acmicpc.net/problem/1789">1789(수들의 합)</a> <code style="color: aquamarine">완료</code> 2022-03-15
 - <img src="https://static.solved.ac/tier_small/6.svg" style="width: 22px; height: 22px;" alt="SILVER5"> <a href="https://www.acmicpc.net/problem/2018">2018(수들의 합)</a> <code style="color: aquamarine">완료</code> 2024-09-30
+- <img src="https://static.solved.ac/tier_small/6.svg" style="width: 22px; height: 22px;" alt="SILVER5"> <a href="https://www.acmicpc.net/problem/12891">12891(DNA 비밀번호.)</a> <code style="color: aquamarine">완료</code> 2025-09-04
 - <img src="https://static.solved.ac/tier_small/7.svg" style="width: 22px; height: 22px;" alt="SILVER4"> <a href="https://www.acmicpc.net/problem/1940">1940(주몽의 명령)</a> <code style="color: aquamarine">완료</code> 2025-09-04
 - <img src="https://static.solved.ac/tier_small/8.svg" style="width: 22px; height: 22px;" alt="SILVER3"> <a href="https://www.acmicpc.net/problem/11659">11659(구간 합 구하기 4)</a> <code style="color: aquamarine">완료</code> 2024-08-19
 - <img src="https://static.solved.ac/tier_small/8.svg" style="width: 22px; height: 22px;" alt="SILVER3"> <a href="https://www.acmicpc.net/problem/2559">2559(수열)</a> <code>진행중</code>
