@@ -106,27 +106,100 @@ public class S5Q12891 {
 //    }
 
     // 시간 초과
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//
+//        int S = Integer.parseInt(st.nextToken()); // DNA 문자열 길이
+//        int P = Integer.parseInt(st.nextToken()); // 부분문자열 길이
+//        char[] password = br.readLine().toCharArray();
+//
+//        int[] DNA = new int[4];
+//        st = new StringTokenizer(br.readLine());
+//        for (int i = 0; i < 4; i++) {
+//            DNA[i] = Integer.parseInt(st.nextToken());
+//        }
+//
+//        int[] cnt = new int[4];
+//        int result = 0;
+//        for (int i = 0; i <= (S - P); i++) {
+//            System.out.println(i + " " + (i + S - P - 1));
+////            int sum = Arrays.stream(DNA).sum();
+////            int[] tempDna = DNA.clone();
+//            if (DNA[i] == 'A') {
+//
+//            }
+//
+//            if (DNA[i] == 'C') {
+//
+//            }
+//
+//            if (DNA[i] == 'G') {
+//
+//            }
+//
+//            if (DNA[i] == 'T') {
+//
+//            }
+//        }
+//
+////        System.out.println(cnt);
+//    }
 
-        int S = Integer.parseInt(st.nextToken()); // DNA 문자열 길이
-        int P = Integer.parseInt(st.nextToken()); // 부분문자열 길이
-        char[] password = br.readLine().toCharArray();
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int S = Integer.parseInt(st.nextToken());
+//        int P = Integer.parseInt(st.nextToken());
+//        String dna = br.readLine();
+//        st = new StringTokenizer(br.readLine());
+//        int[] required = new int[4];
+//        for (int i = 0; i < 4; i++) {
+//            required[i] = Integer.parseInt(st.nextToken());
+//        }
+//        int[] count = new int[4];  // 현재 윈도우 내 A, C, G, T 개수
+//        int satisfied = 0;         // 조건 만족한 문자 종류 수
+//        // 처음부터 required[i] == 0인 항목은 이미 만족된 것으로 본다
+//        for (int i = 0; i < 4; i++) {
+//            if (required[i] == 0) satisfied++;
+//        }
+//        // helper 함수: 문자 → 인덱스
+//        Map<Character,Integer> map = Map.of('A',0, 'C',1, 'G',2, 'T',3);
+//
+//        // 초기 윈도우 채우기
+//        for (int i = 0; i < P; i++) {
+//            char c = dna.charAt(i);
+//            int idx = map.get(c);
+//            count[idx]++;
+//            if (count[idx] == required[idx]) {
+//                satisfied++;
+//            }
+//        }
+//        int result = 0;
+//        if (satisfied == 4) result++;
+//
+//        // 슬라이딩
+//        for (int i = P; i < S; i++) {
+//            // 하나 제거 (i-P), 하나 추가 (i)
+//            char remove = dna.charAt(i - P);
+//            int remIdx = map.get(remove);
+//            if (count[remIdx] == required[remIdx]) {
+//                satisfied--;
+//            }
+//            count[remIdx]--;
+//
+//            char add = dna.charAt(i);
+//            int addIdx = map.get(add);
+//            count[addIdx]++;
+//            if (count[addIdx] == required[addIdx]) {
+//                satisfied++;
+//            }
+//
+//            if (satisfied == 4) result++;
+//        }
+//
+//        System.out.println(result);
+//    }
 
-        int[] DNA = new int[4];
-        st = new StringTokenizer(br.readLine());
-        for (int i = 0; i < 4; i++) {
-            DNA[i] = Integer.parseInt(st.nextToken());
-        }
 
-        int[] cnt = new int[4];
-        int result = 0;
-        for (int i = 0; i <= (S - P); i++) {
-            System.out.println(i + " " + (i + S - P));
-//            int sum = Arrays.stream(DNA).sum();
-//            int[] tempDna = DNA.clone();
-        }
-//        System.out.println(cnt);
-    }
 }
