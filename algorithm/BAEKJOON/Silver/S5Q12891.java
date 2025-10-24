@@ -105,6 +105,7 @@ public class S5Q12891 {
 //        }
 //    }
 
+//    ======================================================================
     // 시간 초과
 //    public static void main(String[] args) throws IOException {
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -146,6 +147,7 @@ public class S5Q12891 {
 ////        System.out.println(cnt);
 //    }
 
+//    ======================================================================
 //    public static void main(String[] args) throws IOException {
 //        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 //        StringTokenizer st = new StringTokenizer(br.readLine());
@@ -201,5 +203,73 @@ public class S5Q12891 {
 //        System.out.println(result);
 //    }
 
+//    ======================================================================
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int S = Integer.parseInt(st.nextToken()); // DNA 문자열 길이
+        int P = Integer.parseInt(st.nextToken()); // 부분문자열 길이
+
+        String dnaString = br.readLine();
+
+        st = new StringTokenizer(br.readLine());
+        int[] minCounts = new int[4]; // A, C, G, T 순서
+        for (int i = 0; i < 4; i++) {
+            minCounts[i] = Integer.parseInt(st.nextToken());
+        }
+
+        // 현재 윈도우에서 각 염기의 개수
+        int[] currentCounts = new int[4];
+        int result = 0;
+
+        for (int i = 0; i < P; i++) {
+            addBase(dnaString.charAt(i), currentCounts);
+        }
+
+        if (isValid(currentCounts, minCounts)) {
+            result++;
+        }
+
+        for (int i = P; i < S; i++) {
+            addBase(dnaString.charAt(i), currentCounts);
+            removeBase(dnaString.charAt(i - P), currentCounts);
+            if (isValid(currentCounts, minCounts)) {
+                result++;
+            }
+        }
+
+        System.out.println(result);
+    }
+
+    // 염기를 배열에 추가
+    private static void addBase(char base, int[] counts) {
+        switch (base) {
+            case 'A': counts[0]++; break;
+            case 'C': counts[1]++; break;
+            case 'G': counts[2]++; break;
+            case 'T': counts[3]++; break;
+        }
+    }
+
+    // 염기를 배열에서 제거
+    private static void removeBase(char base, int[] counts) {
+        switch (base) {
+            case 'A': counts[0]--; break;
+            case 'C': counts[1]--; break;
+            case 'G': counts[2]--; break;
+            case 'T': counts[3]--; break;
+        }
+    }
+
+    // 현재 윈도우가 최소 조건을 만족하는지 확인
+    private static boolean isValid(int[] currentCounts, int[] minCounts) {
+        for (int i = 0; i < 4; i++) {
+            if (currentCounts[i] < minCounts[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
