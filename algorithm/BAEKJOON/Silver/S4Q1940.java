@@ -24,6 +24,7 @@ public class S4Q1940 {
         int N = Integer.parseInt(br.readLine());
         int M = Integer.parseInt(br.readLine());
 
+
         int[] arr = new int[N];
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
