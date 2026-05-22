@@ -13,10 +13,11 @@ public class Q147354 {
 
         int answer = 0;
         for (;row_begin <= row_end; row_begin++) {
-            int finalRow_begin = row_begin;
-            answer ^= Arrays.stream(data[row_begin - 1])
-                    .map(i -> i % finalRow_begin)
-                    .sum();
+            int sum = 0;
+            for (int i : data[row_begin - 1]) {
+                sum += i % row_begin;
+            }
+            answer ^= sum;
         }
         return answer;
     }
