@@ -2,39 +2,40 @@ package level3;
 
 import java.util.*;
 
-public class Q42579 {
+class Q42579 {
     public int[] solution(String[] genres, int[] plays) {
-        HashMap<String, Integer> map = new HashMap<>();
-        int[][] playsSorted = new int[plays.length][2];
+        Map<String, Integer> genreTotal = new HashMap<>();
+        Map<String, List<int[]>> genreSongs = new HashMap<>();
+
         for (int i = 0; i < genres.length; i++) {
-            map.put(genres[i], map.getOrDefault(genres[i], 0) + plays[i]);
+            String genre = genres[i];
 
-            playsSorted[i][0] = i;
-            playsSorted[i][1] = plays[i];
+            genreTotal.put(genre, genreTotal.getOrDefault(genre, 0) + plays[i]);
+
+            genreSongs
+                    .computeIfAbsent(genre, k -> new ArrayList<>())
+                    .add(new int[]{i, plays[i]});
         }
 
-        String[] sorted = map.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue((o1, o2) -> o2 - o1))
-                .map(Map.Entry::getKey)
-                .toArray(String[]::new);
+        List<Integer> answer = new ArrayList<>();
+        genreTotal.keySet().stream()
+                .sorted((g1, g2) -> genreTotal.get(g2) - genreTotal.get(g1))
+                .forEach(genre -> {
+                    genreSongs.get(genre).sort((s1, s2) -> {
+                        if (s1[1] != s2[1]) {
+                            return s2[1] - s1[1];
+                        }
+                        return s1[0] - s2[0];
+                    });
 
-        Arrays.sort(playsSorted, ((o1, o2) -> o2[1] - o1[1]));
+                    genreSongs.get(genre).stream()
+                            .limit(2)
+                            .forEach(song -> answer.add(song[0]));
+                });
 
-        int[] answer = new int[sorted.length * 2];
-        int a = 0;
-        for (int s=0; s < sorted.length; s++) {
-            int idx = 0;
-            for (int i=0; i < plays.length; i++) {
-                if (idx == 2) break;
-
-                if (sorted[s].equals(genres[playsSorted[i][0]])) {
-                    answer[a++] = playsSorted[i][0];
-                    idx++;
-                }
-            }
-        }
-
-        return answer;
+        return answer.stream()
+                .mapToInt(Integer::intValue)
+                .toArray();
     }
 
     public static void main(String[] args) {
