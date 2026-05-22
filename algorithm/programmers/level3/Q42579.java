@@ -4,38 +4,43 @@ import java.util.*;
 
 class Q42579 {
     public int[] solution(String[] genres, int[] plays) {
-        Map<String, Integer> genreTotal = new HashMap<>();
-        Map<String, List<int[]>> genreSongs = new HashMap<>();
+        HashMap<String, Integer> genreTotal = new HashMap<>();
+        int[][] songs = new int[plays.length][2];
 
         for (int i = 0; i < genres.length; i++) {
-            String genre = genres[i];
-
-            genreTotal.put(genre, genreTotal.getOrDefault(genre, 0) + plays[i]);
-
-            genreSongs
-                    .computeIfAbsent(genre, k -> new ArrayList<>())
-                    .add(new int[]{i, plays[i]});
+            genreTotal.put(genres[i], genreTotal.getOrDefault(genres[i], 0) + plays[i]);
+            songs[i][0] = i;
+            songs[i][1] = plays[i];
         }
 
-        List<Integer> answer = new ArrayList<>();
-        genreTotal.keySet().stream()
-                .sorted((g1, g2) -> genreTotal.get(g2) - genreTotal.get(g1))
-                .forEach(genre -> {
-                    genreSongs.get(genre).sort((s1, s2) -> {
-                        if (s1[1] != s2[1]) {
-                            return s2[1] - s1[1];
-                        }
-                        return s1[0] - s2[0];
-                    });
+        String[] sortedGenres = genreTotal.entrySet().stream()
+                .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
+                .map(Map.Entry::getKey)
+                .toArray(String[]::new);
 
-                    genreSongs.get(genre).stream()
-                            .limit(2)
-                            .forEach(song -> answer.add(song[0]));
-                });
+        Arrays.sort(songs, (a, b) -> {
+            if (b[1] != a[1]) return Integer.compare(b[1], a[1]);
+            return Integer.compare(a[0], b[0]);
+        });
 
-        return answer.stream()
-                .mapToInt(Integer::intValue)
-                .toArray();
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (String genre : sortedGenres) {
+            int count = 0;
+
+            for (int[] song : songs) {
+                if (count == 2) break;
+
+                int songId = song[0];
+
+                if (genre.equals(genres[songId])) {
+                    result.add(songId);
+                    count++;
+                }
+            }
+        }
+
+        return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
     public static void main(String[] args) {
