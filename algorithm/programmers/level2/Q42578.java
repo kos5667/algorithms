@@ -1,16 +1,19 @@
 package level2;
 
-import java.util.Arrays;
-import static java.util.stream.Collectors.*;
+import java.util.HashMap;
 
 public class Q42578 {
     public int solution(String[][] clothes) {
-        return Arrays.stream(clothes)
-                .collect(groupingBy(p -> p[1], counting()))
-                .values()
-                .stream()
-                .mapToInt(Long::intValue)
-                .reduce(1, (x, y) -> x * (y + 1)) - 1;
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String[] clothe : clothes) {
+            map.put(clothe[1], map.getOrDefault(clothe[1], 0) + 1);
+        }
+
+        int answer = 1;
+        for (Integer i : map.values()) {
+            answer = (i + 1) * answer;
+        }
+        return answer - 1;
     }
 
     public static void main(String[] args) {
