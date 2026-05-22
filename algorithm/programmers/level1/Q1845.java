@@ -1,13 +1,28 @@
 package level1;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 class Q1845 {
     public int solution(int[] nums) {
-        int answer = 0;
+        int max = nums.length / 2;
 
+        Integer a = Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.collectingAndThen(
+                        Collectors.toSet(),
+                        p -> Math.min(p.size(), max)
+                ));
 
+        String phone_number = "123123123123123";
 
+        System.out.println(phone_number);
+//        sdf.replace(, "*");
 
-        return answer;
+        return a;
+//        return Math.min(a.size(), max);
     }
 
     public static void main(String[] args) {
