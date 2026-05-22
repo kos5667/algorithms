@@ -17,7 +17,12 @@ class Q1845 {
                 ));
 
         String phone_number = "123123123123123";
+        String temp = phone_number.substring(0, phone_number.length() - 4);
+        String ddd = "";
+        for (char c : temp.toCharArray())
+            ddd += "*";
 
+        phone_number = phone_number.replaceAll(temp, ddd);
         System.out.println(phone_number);
 //        sdf.replace(, "*");
 
