@@ -28,20 +28,15 @@ import java.util.Comparator;
 
 public class Q42747 {
     public int solution(int[] citations) {
-        int[] hArr = Arrays.stream(citations)
-                .boxed()
-                .sorted(Comparator.reverseOrder())
-                .mapToInt(Integer::intValue)
-                .toArray();
-
-        for (int i = 0; i < hArr.length; i++) {
-            if (hArr[i] < (i + 1))
-                return i;
-        }
-        return hArr.length;
+        Arrays.sort(citations);
+        for (int i = citations.length-1; i >= 0; i--)
+            if (citations[i] < (citations.length - i))
+                return citations.length - (i + 1);
+        return citations.length;
     }
 
     public static void main(String[] args) {
-        System.out.println(new Q42747().solution(new int[]{0}));
+        int i = new Q42747().solution(new int[]{3, 0, 6, 1, 5});
+        System.out.println(i);
     }
 }
