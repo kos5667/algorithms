@@ -1,8 +1,6 @@
 package level1;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
+import java.util.*;
 
 /**
  * <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12906?language=java">...</a>
@@ -21,14 +19,15 @@ import java.util.Deque;
  */
 public class Q12906 {
     public int[] solution(int []arr) {
-        Deque<Integer> deque = new ArrayDeque<>();
+        List<Integer> list = new ArrayList<>();
+
         for (int i : arr) {
-            if (deque.isEmpty() || deque.getLast() != i) {
-                deque.addLast(i);
+            if (list.isEmpty() || list.get(list.size() - 1) != i) {
+                list.add(i);
             }
         }
 
-        return deque.stream()
+        return list.stream()
                 .mapToInt(Integer::intValue)
                 .toArray();
     }
