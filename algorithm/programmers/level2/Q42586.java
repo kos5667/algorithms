@@ -40,25 +40,19 @@ public class Q42586 {
     public int[] solution(int[] progresses, int[] speeds) {
         List<Integer> deploy = new ArrayList<>();
 
-        int afterDays = 0;
-        int idx = 0;
+        int currentDeployDay = 0;
+        int idx = -1;
+
         for (int i = 0; i < progresses.length; i++) {
-            int progress = 100 - progresses[i];
+            int days = (100 - progresses[i] + speeds[i] - 1) / speeds[i];
 
-            if (deploy.isEmpty()) {
+            if (deploy.isEmpty() || currentDeployDay < days) {
                 deploy.add(1);
-                afterDays = progress / speeds[i];
-                continue;
+                idx++;
+                currentDeployDay = days;
+            } else {
+                deploy.set(idx, deploy.get(idx) + 1);
             }
-
-            if (afterDays >= (progress / speeds[i])) {
-                deploy.set(idx, (deploy.get(idx) + 1));
-                continue;
-            }
-
-            afterDays = progress / speeds[i];
-            deploy.add(1);
-            idx++;
         }
 
         return deploy.stream()
