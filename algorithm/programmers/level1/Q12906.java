@@ -19,17 +19,15 @@ import java.util.*;
  */
 public class Q12906 {
     public int[] solution(int []arr) {
-        List<Integer> list = new ArrayList<>();
+        int[] temp = new int[arr.length];
+        int idx = 0;
 
         for (int i : arr) {
-            if (list.isEmpty() || list.get(list.size() - 1) != i) {
-                list.add(i);
+            if (idx == 0 || temp[idx - 1] != i) {
+                temp[idx++] = i;
             }
         }
-
-        return list.stream()
-                .mapToInt(Integer::intValue)
-                .toArray();
+        return Arrays.copyOf(temp, idx);
     }
 
     public static void main(String[] args) {
