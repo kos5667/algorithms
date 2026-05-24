@@ -38,7 +38,12 @@ public class Q42584 {
             int[] price = queue.poll();
 
             for (int[] p : queue) {
-                if (price[1] <= p[1]) price[2]++;
+//                if (price[1] <= p[1]) price[2]++;
+
+                price[2]++;
+                if (price[1] > p[1]) {
+                    break;
+                }
             }
             answer[price[0]] = price[2];
         }
@@ -47,5 +52,7 @@ public class Q42584 {
 
     public static void main(String[] args) {
         new Q42584().solution(new int[] {1, 2, 3, 2, 3});
+        new Q42584().solution(new int[] {1, 1});
+        new Q42584().solution(new int[] {5, 4, 3, 2, 1});
     }
 }
