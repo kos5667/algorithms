@@ -26,6 +26,7 @@
 - <img src="https://static.solved.ac/tier_small/7.svg" style="width: 22px; height: 22px;" alt="SILVER4"> <a href="https://www.acmicpc.net/problem/1940">1940(주몽의 명령)</a> <code style="color: aquamarine">완료</code> 2025-09-04
 - <img src="https://static.solved.ac/tier_small/8.svg" style="width: 22px; height: 22px;" alt="SILVER3"> <a href="https://www.acmicpc.net/problem/11659">11659(구간 합 구하기 4)</a> <code style="color: aquamarine">완료</code> 2024-08-19
 - <img src="https://static.solved.ac/tier_small/8.svg" style="width: 22px; height: 22px;" alt="SILVER3"> <a href="https://www.acmicpc.net/problem/2559">2559(수열)</a> <code>진행중</code>
+- <img src="https://static.solved.ac/tier_small/8.svg" style="width: 22px; height: 22px;" alt="SILVER3"> <a href="https://www.acmicpc.net/problem/11047">11047(동전 개수의 최솟값 구하기)</a> <code style="color: aquamarine">완료</code> 2026-05-24
 - <img src="https://static.solved.ac/tier_small/9.svg" style="width: 22px; height: 22px;" alt="SILVER2"> <a href="https://www.acmicpc.net/problem/12891">12891(DNA 비밀번호)</a> <code style="color: aquamarine">완료</code> 2025-09-04
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/1926">1926(그림)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/14888">14888(연산자 끼워넣기)</a> <code>진행중</code>
