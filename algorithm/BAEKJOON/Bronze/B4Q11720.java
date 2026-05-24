@@ -3,6 +3,7 @@ package Bronze;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 /**
  * @questionNo 11720
@@ -10,21 +11,24 @@ import java.io.InputStreamReader;
  * @questionLevel 4
  * @isComplete true
  * @since 2024-08-18
+ * 1
+ * 10987654321
  */
 public class B4Q11720 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        String num = br.readLine();
 
-        // 방법 1
-        int result = num.chars().map(Character::getNumericValue).sum();
+        int N = Integer.parseInt(br.readLine());
+        String sNum = br.readLine();
 
-        // 방법 2
-//        int result = 0;
-//        for (char i : num.toCharArray()) {
-//            result += i-'0';
+        int sum = sNum.chars().map(Character::getNumericValue).sum();
+
+//        int sum = 0;
+//        char[] arr = sNum.toCharArray();
+//
+//        for (char c : arr) {
+//            sum += Integer.parseInt(String.valueOf(c));
 //        }
-        System.out.println(result);
+        System.out.println(sum);
     }
 }
