@@ -41,47 +41,36 @@ import java.util.*;
  */
 public class Q42583 {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
-        Queue<Integer> waiting_trucks = new ArrayDeque<>();
-        for (int t : truck_weights) waiting_trucks.add(t);
+        Queue<Integer> bridge = new ArrayDeque<>();
 
-        Queue<Integer> passing_bridge = new ArrayDeque<>();
-        Queue<Integer> passed_bridge = new ArrayDeque<>();
+        // 처음에는 다리가 비어 있으므로 0으로 채움
+        for (int i = 0; i < bridge_length; i++) {
+            bridge.add(0);
+        }
 
-        int passing_weight = 0;
-        int spend_time = 0;
+        int time = 0;
+        int currentWeight = 0;
+        int index = 0;
 
-        while (passed_bridge.size() != truck_weights.length) {
-            spend_time++;
-            System.out.println(spend_time + " " + passed_bridge.toString() + " " + passing_bridge.toString() + " " + waiting_trucks.toString());
+        while (index < truck_weights.length) {
+            time++;
 
-            if (passing_bridge.isEmpty() && !waiting_trucks.isEmpty()) {
-                int truck = waiting_trucks.poll();
-                passing_bridge.add(truck);
-                passing_weight += truck;
-                continue;
-            }
+            // 매 초 다리 맨 앞은 빠져나감
+            currentWeight -= bridge.poll();
 
-            if (!passing_bridge.isEmpty() && passing_bridge.size() < bridge_length) {
-                int passingTruck = passing_bridge.peek();
-                int sumTruckWeight = passingTruck + passing_weight;
-
-                if (!waiting_trucks.isEmpty() && sumTruckWeight < weight) {
-                    int truck = waiting_trucks.poll();
-                    passing_bridge.add(truck);
-                    passing_weight += truck;
-                    continue;
-                }
-
-                if ((sumTruckWeight + passingTruck) >= weight) {
-                    int truck = passing_bridge.poll();
-                    passed_bridge.add(truck);
-                    passing_weight -= truck;
-                }
+            // 다음 트럭이 올라갈 수 있으면 올림
+            if (currentWeight + truck_weights[index] <= weight) {
+                bridge.add(truck_weights[index]);
+                currentWeight += truck_weights[index];
+                index++;
+            } else {
+                // 못 올라가면 빈 공간만 이동
+                bridge.add(0);
             }
         }
 
-        int answer = 0;
-        return answer;
+        // 마지막 트럭이 다리에 올라간 뒤 bridge_length초 후 완전히 건넘
+        return time + bridge_length;
     }
 
     public static void main(String[] args) {
