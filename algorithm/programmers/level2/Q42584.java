@@ -28,20 +28,19 @@ import java.util.Queue;
  */
 public class Q42584 {
     public int[] solution(int[] prices) {
-        Queue<Integer> queue = new ArrayDeque<>();
-        for (int p : prices) queue.offer(p);
+        Queue<int[]> queue = new ArrayDeque<>();
+        for (int i = 0; i < prices.length; i++) {
+            queue.add(new int[] {i, prices[i], 0});
+        }
 
         int[] answer = new int[prices.length];
-        int time = 0;
-        int idx = 0;
         while (!queue.isEmpty()) {
-            int price = queue.poll();
+            int[] price = queue.poll();
 
-            for (int p : queue) {
-                if (price <= p) time++;
+            for (int[] p : queue) {
+                if (price[1] <= p[1]) price[2]++;
             }
-            answer[idx++] = time;
-            time = 0;
+            answer[price[0]] = price[2];
         }
         return answer;
     }
