@@ -44,32 +44,33 @@ import java.util.*;
  */
 public class Q42587 {
     public int solution(int[] priorities, int location) {
-        int process = 'A', index = 0;
-
         Queue<int[]> queue = new ArrayDeque<>();
         for (int i = 0; i < priorities.length; i++) {
-            if (i == location) index = process;
-            int[] data = { priorities[i], process++ };
-            queue.add(data);
+            queue.add(new int[]{ priorities[i], i });
         }
 
-        Queue<int[]> sorted = new ArrayDeque<>();
+        int answer = 0;
         while (!queue.isEmpty()) {
-            int[] data = queue.poll();
+            int[] poll = queue.poll();
 
-            if (!sorted.isEmpty() && sorted.peek()[0] <= data[0]) {
-                queue.add(sorted.poll());
-            }
-            sorted.add(data);
-        }
+            boolean hasHigher = false;
 
-        int answer = 1;
-        while (!sorted.isEmpty()) {
-            int[] data = sorted.poll();
-            if (data[1] == index) {
-                break;
+            for (int[] i : queue) {
+                if (i[0] > poll[0]) {
+                    hasHigher = true;
+                    break;
+                }
             }
-            answer++;
+
+            if (hasHigher) {
+                queue.offer(poll);
+            } else {
+                answer++;
+
+                if (poll[1] == location) {
+                    return answer;
+                }
+            }
         }
         return answer;
     }
