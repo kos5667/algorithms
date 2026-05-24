@@ -24,23 +24,46 @@ public class S3Q11659 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
         st = new StringTokenizer(br.readLine());
-        long[] arr = new long[n+1];
-        for (int i=1; i<=n; i++) {
+        int[] nums = new int[N+1];
+        for (int i=1; i<N + 1; i++) {
             int num = Integer.parseInt(st.nextToken());
-            arr[i] = i == 1 ? num : arr[i-1] + num;
+            nums[i] = (i == 1) ? num : nums[i-1] + num;
         }
 
-        for (int i=0; i<m; i++) {
+        System.out.println(Arrays.toString(nums));
+
+        for (;M > 0; M--) {
             st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
-            System.out.println(arr[y] - arr[x -1]);
+            int i = Integer.parseInt(st.nextToken());
+            int j = Integer.parseInt(st.nextToken());
+            System.out.println(nums[j] - nums[i-1]);
         }
     }
+
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        int n = Integer.parseInt(st.nextToken());
+//        int m = Integer.parseInt(st.nextToken());
+//
+//        st = new StringTokenizer(br.readLine());
+//        long[] arr = new long[n+1];
+//        for (int i=1; i<=n; i++) {
+//            int num = Integer.parseInt(st.nextToken());
+//            arr[i] = i == 1 ? num : arr[i-1] + num;
+//        }
+//
+//        for (int i=0; i<m; i++) {
+//            st = new StringTokenizer(br.readLine());
+//            int x = Integer.parseInt(st.nextToken());
+//            int y = Integer.parseInt(st.nextToken());
+//            System.out.println(arr[y] - arr[x -1]);
+//        }
+//    }
 
 
 
