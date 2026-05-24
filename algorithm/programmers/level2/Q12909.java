@@ -1,7 +1,6 @@
 package level2;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 /**
  * <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12909">...</a>
@@ -32,21 +31,28 @@ import java.util.List;
 public class Q12909 {
     boolean solution(String s) {
         boolean answer = true;
-        char[] chars = s.toCharArray();
 
-        int idx = 0;
-        for (int i = 0; i < chars.length; i++) {
-            if (idx < 0) return false;
-            if (chars[i] == '(') idx++;
-            if (chars[i] == ')') idx--;
+        Stack<Character> stack = new Stack<>();
+        for (char c : s.toCharArray()) {
+            stack.push(c);
         }
-        if (idx != 0) return false;
+
+        int index = 0;
+        while (!stack.isEmpty()) {
+            char c = stack.pop();
+            if (c == ')') index++;
+            else index--;
+
+            if (stack.isEmpty() && index != 0) return false;
+            if (index == -1) return false;
+        }
+
         return answer;
     }
 
     public static void main(String[] args) {
-        String[] param = new String[]{"()()", "(())()", ")()(", "(()("};
-//        String[] param = new String[]{"(())())("};
+//        String[] param = new String[]{"()()", "(())()", ")()(", "(()("};
+        String[] param = new String[]{")((()(())())())"};
         for (String s : param) {
             System.out.println(new Q12909().solution(s));
             System.out.println("------------------------");
