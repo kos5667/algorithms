@@ -18,11 +18,13 @@
 - <img src="https://static.solved.ac/tier_small/5.svg" style="width: 22px; height: 22px;" alt="BRONZE1"> <a href="https://www.acmicpc.net/problem/11660">11660(쉽게 푸는 문제)</a> <code style="color: aquamarine">완료</code> 2022-03-16
 - <img src="https://static.solved.ac/tier_small/5.svg" style="width: 22px; height: 22px;" alt="BRONZE1"> <a href="https://www.acmicpc.net/problem/2693">2693(N번째 큰 수)</a> <code style="color: aquamarine">완료</code> 2024-03-15
 - <img src="https://static.solved.ac/tier_small/5.svg" style="width: 22px; height: 22px;" alt="BRONZE1"> <a href="https://www.acmicpc.net/problem/1546">1546(평균 구하기)</a> <code style="color: aquamarine">완료</code> 2024-08-18
+- <img src="https://static.solved.ac/tier_small/5.svg" style="width: 22px; height: 22px;" alt="BRONZE1"> <a href="https://www.acmicpc.net/problem/2750">2750(수 정렬하기1)</a> <code style="color: aquamarine">완료</code> 2026-05-25
 
 ### SILVER
 - <img src="https://static.solved.ac/tier_small/6.svg" style="width: 22px; height: 22px;" alt="SILVER5"> <a href="https://www.acmicpc.net/problem/1789">1789(수들의 합)</a> <code style="color: aquamarine">완료</code> 2022-03-15
 - <img src="https://static.solved.ac/tier_small/6.svg" style="width: 22px; height: 22px;" alt="SILVER5"> <a href="https://www.acmicpc.net/problem/2018">2018(수들의 합)</a> <code style="color: aquamarine">완료</code> 2024-09-30
 - <img src="https://static.solved.ac/tier_small/6.svg" style="width: 22px; height: 22px;" alt="SILVER5"> <a href="https://www.acmicpc.net/problem/2167">2167(2차원 배열의 합)</a> <code>진행중</code>
+- <img src="https://static.solved.ac/tier_small/6.svg" style="width: 22px; height: 22px;" alt="SILVER5"> <a href="https://www.acmicpc.net/problem/11724">11724(연결 요소의 개수 구하기)</a> <code style="color: aquamarine">완료</code> 2026-05-25
 - <img src="https://static.solved.ac/tier_small/7.svg" style="width: 22px; height: 22px;" alt="SILVER4"> <a href="https://www.acmicpc.net/problem/1940">1940(주몽의 명령)</a> <code style="color: aquamarine">완료</code> 2025-09-04
 - <img src="https://static.solved.ac/tier_small/8.svg" style="width: 22px; height: 22px;" alt="SILVER3"> <a href="https://www.acmicpc.net/problem/11659">11659(구간 합 구하기 4)</a> <code style="color: aquamarine">완료</code> 2024-08-19
 - <img src="https://static.solved.ac/tier_small/8.svg" style="width: 22px; height: 22px;" alt="SILVER3"> <a href="https://www.acmicpc.net/problem/2559">2559(수열)</a> <code>진행중</code>
@@ -31,10 +33,13 @@
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/1926">1926(그림)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/14888">14888(연산자 끼워넣기)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/11660">11660(구간 합 구하기 2)</a> <code style="color: aquamarine">완료</code> 2024-09-14
+- <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/1427">1427(내림차순으로 자릿수 정렬하기)</a> <code style="color: aquamarine">완료</code> 2026-05-25
+- <img src="https://static.solved.ac/tier_small/10.svg" style="width: 22px; height: 22px;" alt="SILVER1"> <a href="https://www.acmicpc.net/problem/2178">2178(미로 탐색하기)</a> <code style="color: aquamarine">완료</code> 2026-05-26
 - <img src="https://static.solved.ac/tier_small/0.svg" style="width: 22px; height: 22px;" alt="SILVER0"> <a href="#">0(null)</a> <code>진행중</code>
 
 ### GOLD
 - <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/14719">14719(빗물)</a> <code>진행중</code>
 - <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/2504">2504(괄호의 값)</a> <code>진행중</code>
+- <img src="https://static.solved.ac/tier_small/11.svg" style="width: 22px; height: 22px;" alt="GOLD5"> <a href="https://www.acmicpc.net/problem/2023">2023(신기한 소수 찾기)</a> <code style="color: aquamarine">완료</code> 2026-05-26
 - <img src="https://static.solved.ac/tier_small/12.svg" style="width: 22px; height: 22px;" alt="GOLD4"> <a href="https://www.acmicpc.net/problem/123">123(TEST)</a> <code style="color: aquamarine">완료</code> 2024-10-25
 - <img src="https://static.solved.ac/tier_small/13.svg" style="width: 22px; height: 22px;" alt="GOLD3"> <a href="https://www.acmicpc.net/problem/10986">10986(나머지 합)</a> <code style="color: aquamarine">완료</code> 2024-09-23
