@@ -24,46 +24,101 @@ public class S5Q2018 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(br.readLine());
 
-        int n = Integer.parseInt(st.nextToken());
         int cnt = 1;
         int sum = 1;
-        int start = 1, end = 1;
-        int index = 1;
-        while (end != n) {
-            if (sum == n) {
+        int start_idx = 1, end_idx = 1;
+        while (end_idx != N) {
+            if (sum == N) {
+                System.out.println("----------------------");
                 cnt++;
-                end++;
-                sum += end;
-            } else if (sum > n) {
-                start++;
-                sum -= start;
+                end_idx++;
+                sum += end_idx;
+            } else if (sum > N) {
+                sum -= start_idx;
+                start_idx++;
             } else {
-                end++;
-                sum += end;
+                end_idx++;
+                sum += end_idx;
             }
-
-            System.out.println(index + " " + ((sum == n) ? "end++" : (sum > n) ? "start++":"el end++") + " | " + start + ", " + end + ", sum = " + sum + " : " + ((sum == n) ? "O" : "X"));
-            /**
-             * 1 + 2 = 3 (1 + 2)
-             * 3 + 3 = 6 (1 + 2 + 3) cnt++
-             * 6 + 4 = 10 (sum > n) --> sum(10) - start(2)
-             * 10 - 2 = 8 (sum > n) --> sum(8) - start(3)
-             * 8 - 3 = 5
-             *
-             */
-
-            index++;
-
-            /**
-             * 1 2 : 3 (end++, sum = 2)
-             * 1 2 3 : 6 > 5
-             * 2 3 : 5 == 5
-             * 2 + 3 + 4 : 6 > 5
-             * 3 4 : 6
-             */
+            System.out.println(start_idx + " " + end_idx + " sum: " + sum + " ");
         }
+
         System.out.println(cnt);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public static void main(String[] args) throws IOException {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//
+//        int n = Integer.parseInt(st.nextToken());
+//        int cnt = 1;
+//        int sum = 1;
+//        int start = 1, end = 1;
+//        int index = 1;
+//        while (end != n) {
+//            if (sum == n) {
+//                cnt++;
+//                end++;
+//                sum += end;
+//            } else if (sum > n) {
+//                start++;
+//                sum -= start;
+//            } else {
+//                end++;
+//                sum += end;
+//            }
+//
+//            System.out.println(index + " " + ((sum == n) ? "end++" : (sum > n) ? "start++":"el end++") + " | " + start + ", " + end + ", sum = " + sum + " : " + ((sum == n) ? "O" : "X"));
+//            /**
+//             * 1 + 2 = 3 (1 + 2)
+//             * 3 + 3 = 6 (1 + 2 + 3) cnt++
+//             * 6 + 4 = 10 (sum > n) --> sum(10) - start(2)
+//             * 10 - 2 = 8 (sum > n) --> sum(8) - start(3)
+//             * 8 - 3 = 5
+//             *
+//             */
+//
+//            index++;
+//
+//            /**
+//             * 1 2 : 3 (end++, sum = 2)
+//             * 1 2 3 : 6 > 5
+//             * 2 3 : 5 == 5
+//             * 2 + 3 + 4 : 6 > 5
+//             * 3 4 : 6
+//             */
+//        }
+//        System.out.println(cnt);
+//    }
 }
