@@ -28,6 +28,28 @@ import java.util.Stack;
  * 5초 시점의 ₩3은 0초간 가격이 떨어지지 않았습니다.
  */
 public class Q42584 {
+    public int[] solution(int[] prices) {
+        int[] answer = new int[prices.length];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i=0; i<prices.length; i++){
+            while (!stack.isEmpty() && prices[stack.peek()] > prices[i]) {
+                int index = stack.pop();
+                answer[index]++;
+            }
+            stack.push(i);
+        }
+
+        System.out.println(Arrays.toString(answer));
+
+        for (int index : stack) {
+            answer[index] = prices.length - 1 - index;
+        }
+        System.out.println(stack + " " + Arrays.toString(answer));
+
+        return answer;
+    }
+
     /**
      * 정확성  테스트
      * 테스트 1 〉	통과 (0.03ms, 59.4MB)
@@ -91,36 +113,38 @@ public class Q42584 {
      * 테스트 4 〉	통과 (11.91ms, 73MB)
      * 테스트 5 〉	통과 (8.71ms, 66.7MB)
      */
-    public int[] solution(int[] prices) {
-        int n = prices.length;
-        int[] answer = new int[n];
-        Stack<Integer> stack = new Stack<>();
-
-        for (int i = 0; i < n; i++) {
-            while (!stack.isEmpty() && prices[stack.peek()] > prices[i]) {
-                int index = stack.pop();
-                answer[index] = i - index;
-            }
-
-            stack.push(i);
-//            System.out.println(Arrays.toString(answer) + " " + stack);
-//            System.out.println(Arrays.toString(answer));
-//            System.out.println(stack);
-        }
-
-        System.out.println(Arrays.toString(answer) + " " + stack);
-
-        while (!stack.isEmpty()) {
-            int index = stack.pop();
-            answer[index] = n - 1 - index;
-        }
-        System.out.println(Arrays.toString(answer));
-        return answer;
-    }
+//    public int[] solution(int[] prices) {
+//        int n = prices.length;
+//        int[] answer = new int[n];
+//        Stack<Integer> stack = new Stack<>();
+//
+//        for (int i = 0; i < n; i++) {
+//            while (!stack.isEmpty() && prices[stack.peek()] > prices[i]) {
+//                int index = stack.pop();
+//                answer[index] = i - index;
+//            }
+//
+//            stack.push(i);
+////            System.out.println(Arrays.toString(answer) + " " + stack);
+////            System.out.println(Arrays.toString(answer));
+////            System.out.println(stack);
+//            System.out.println(stack + " " + Arrays.toString(answer));
+//        }
+//
+////        System.out.println(Arrays.toString(answer) + " " + stack);
+//
+//        while (!stack.isEmpty()) {
+//            int index = stack.pop();
+//            answer[index] = n - 1 - index;
+//        }
+//        System.out.println(Arrays.toString(answer));
+//        return answer;
+//    }
 
     public static void main(String[] args) {
 //        new Q42584().solution(new int[] {1, 2, 3, 2, 3});
+        new Q42584().solution(new int[] {2, 3, 1, 2, 3});
 //        new Q42584().solution(new int[] {1, 1});
-        new Q42584().solution(new int[] {5, 4, 3, 2, 1});
+//        new Q42584().solution(new int[] {5, 4, 3, 2, 1});
     }
 }
