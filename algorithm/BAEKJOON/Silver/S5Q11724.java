@@ -3,7 +3,9 @@ package Silver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.StringTokenizer;
 
 /**
@@ -55,13 +57,19 @@ public class S5Q11724 {
     }
 
     static void DFS(int idx){
-        if (visited[idx])
-            return;
+        Deque<Integer> stack = new ArrayDeque<>();
+        stack.push(idx);
 
-        visited[idx] = true;
-        for (int i : A[idx]) {
-            if (!visited[i]) {
-                DFS(i);
+        while (!stack.isEmpty()) {
+            int now = stack.pop();
+            if (visited[now])
+                continue;
+
+            visited[now] = true;
+            for (int next : A[now]) {
+                if (!visited[next]) {
+                    stack.push(next);
+                }
             }
         }
     }
