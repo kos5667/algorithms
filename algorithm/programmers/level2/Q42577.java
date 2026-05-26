@@ -2,6 +2,11 @@ package level2;
 
 import java.util.*;
 
+/**
+ * <a href="https://school.programmers.co.kr/learn/courses/30/lessons/42577">...</a>
+ * @title 전화번호 목록
+ * @tag 해시
+ */
 public class Q42577 {
     public boolean solution(String[] phone_book) {
         Arrays.sort(phone_book);
