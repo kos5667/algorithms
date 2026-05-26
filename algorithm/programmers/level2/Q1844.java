@@ -1,6 +1,7 @@
 package level2;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Queue;
 
 /**
@@ -17,10 +18,9 @@ public class Q1844 {
         int[] dy = {0, 0, -1, 1};
 
         Queue<int[]> queue = new ArrayDeque<>();
-        queue.offer(new int[]{0, 0});
+        queue.offer(new int[]{0, 0}); // 시작은 (0, 0);
 
         boolean[][] visited = new boolean[n][m];
-        visited[0][0] = true;
 
         while (!queue.isEmpty()) {
             int[] current = queue.poll();
@@ -28,18 +28,26 @@ public class Q1844 {
             int x = current[0];
             int y = current[1];
 
-            for (int i = 0; i < 4; i++) {
+            // action은 4방향 위 아래 왼쪽 오른쪽
+            for (int i=0; i < 4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
 
+                /**
+                 * nx는 0보다 작을 수 없다.
+                 * ny는 0보다 작을 수 없다.
+                 * n, y 또한 현재보다 커야 함.
+                 */
                 if (nx < 0 || ny < 0 || nx >= n || ny >= m) {
                     continue;
                 }
 
+                // 방문했으면 pass
                 if (visited[nx][ny]) {
                     continue;
                 }
 
+                // 막힌 길 pass
                 if (maps[nx][ny] == 0) {
                     continue;
                 }
@@ -51,11 +59,14 @@ public class Q1844 {
             }
         }
 
+        for (int[] i : maps) {
+            System.out.println(Arrays.toString(i));
+        }
         return maps[n - 1][m - 1] == 1 ? -1 : maps[n - 1][m - 1];
     }
 
     public static void main(String[] args) {
         new Q1844().solution(new int[][]{{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}});
-        new Q1844().solution(new int[][]{{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}});
+//        new Q1844().solution(new int[][]{{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}});
     }
 }
