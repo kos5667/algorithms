@@ -1,6 +1,7 @@
 package level2;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * <a href="https://school.programmers.co.kr/learn/courses/30/lessons/43165?language=java">...</a>
@@ -37,17 +38,30 @@ numbers	target	return
  */
 public class Q43165 {
     public int solution(int[] numbers, int target) {
-        return dfs(numbers, target, 0, 0);
-    }
+        int answer = 0;
 
-    private int dfs(int[] numbers, int target, int idx, int sum) {
-        if (idx == numbers.length) {
-            if (sum == target) {
-                return 1;
+        Stack<int[]> stack = new Stack<>();
+        stack.push(new int[]{0, 0}); // {index, sum}
+
+        while (!stack.isEmpty()) {
+            int[] current = stack.pop();
+
+            int index = current[0];
+            int sum = current[1];
+
+            if (index == numbers.length) {
+                if (sum == target) {
+                    answer++;
+                }
+                continue;
             }
-            return 0;
+
+            stack.push(new int[]{index + 1, sum + numbers[index]});
+            stack.push(new int[]{index + 1, sum - numbers[index]});
         }
-        return dfs(numbers, target, idx + 1, sum + numbers[idx]) + dfs(numbers, target, idx + 1, sum - numbers[idx]);
+
+        System.out.println(answer);
+        return answer;
     }
 
     public static void main(String[] args) {
