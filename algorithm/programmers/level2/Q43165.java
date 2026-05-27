@@ -36,24 +36,18 @@ numbers	target	return
 총 2가지 방법이 있으므로, 2를 return 합니다.
  */
 public class Q43165 {
-    int answer = 0;
     public int solution(int[] numbers, int target) {
-        dfs(numbers, target, 1, +numbers[0]);
-        dfs(numbers, target, 1, -numbers[0]);
-        System.out.println(answer);
-        return 0;
+        return dfs(numbers, target, 0, 0);
     }
 
-    private void dfs(int[] numbers, int target, int idx, int sum) {
-        if ((idx) == numbers.length) {
+    private int dfs(int[] numbers, int target, int idx, int sum) {
+        if (idx == numbers.length) {
             if (sum == target) {
-                answer++;
+                return 1;
             }
-            return;
+            return 0;
         }
-
-        dfs(numbers, target, idx+1, sum + numbers[idx]);
-        dfs(numbers, target, idx+1, sum - numbers[idx]);
+        return dfs(numbers, target, idx + 1, sum + numbers[idx]) + dfs(numbers, target, idx + 1, sum - numbers[idx]);
     }
 
     public static void main(String[] args) {
