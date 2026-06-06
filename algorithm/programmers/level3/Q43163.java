@@ -35,32 +35,32 @@ package level3;
  * target인 "cog"는 words 안에 없기 때문에 변환할 수 없습니다.
  */
 public class Q43163 {
+    int answer = Integer.MAX_VALUE;
     public int solution(String begin, String target, String[] words) {
-        int answer = 0;
         boolean[] visited = new boolean[words.length];
 
         dfs(begin, target, words, visited, 0);
-//        System.out.println(answer);
-        return answer;
+
+        return answer == Integer.MAX_VALUE ? 0 : answer;
     }
 
-    private void dfs(String begin, String target, String[] words, boolean[] visited, int answer) {
-//        System.out.println(begin + " " + target + " " + idx + " ");
+    private void dfs(String begin, String target, String[] words, boolean[] visited, int count) {
+        if (begin.equals(target)) {
+            answer = count;
+            return;
+        }
+
         for (int j = 0; j < begin.length(); j++) {
-            System.out.println("--------------------");
             for (int i = 0; i < words.length; i++) {
                 if (visited[i]) {
                     continue;
                 }
 
                 String switched  = this.switched(begin, words[i], j);
-                System.out.println(words[i] + " " + switched);
-
                 if (words[i].equals(switched)) {
                     visited[i] = true;
-                    answer++;
-//                    System.out.println(words[i] + " " + switched + " " + Arrays.toString(visited) + " " + answer);
-                    dfs(words[i], target, words, visited, answer);
+                    dfs(words[i], target, words, visited, count + 1);
+                    visited[i] = false;
                 }
             }
         }
