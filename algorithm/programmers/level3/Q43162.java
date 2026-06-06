@@ -4,6 +4,7 @@ package level3;
  * <a href="https://school.programmers.co.kr/learn/courses/30/lessons/43162">...</a>
  * @title 네트워크
  * @tag 깊이/너비 우선 탐색(DFS/BFS)
+ * @recovery 1
  *
  * 네트워크란 컴퓨터 상호 간에 정보를 교환할 수 있도록 연결된 형태를 의미합니다.
  * 예를 들어, 컴퓨터 A와 컴퓨터 B가 직접적으로 연결되어있고, 컴퓨터 B와 컴퓨터 C가 직접적으로 연결되어 있을 때 컴퓨터 A와 컴퓨터 C도 간접적으로 연결되어 정보를 교환할 수 있습니다.
@@ -23,36 +24,33 @@ package level3;
  * 3	[[1, 1, 0], [1, 1, 1], [0, 1, 1]]	1
  */
 public class Q43162 {
-    boolean[] visited;
-
     public int solution(int n, int[][] computers) {
         int answer = 0;
-        visited = new boolean[n];
+        boolean[] visited = new boolean[n];
 
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
-                dfs(i, n, computers);
+                dfs(i, visited, computers);
                 answer++;
             }
         }
 
+        System.out.println(answer);
         return answer;
     }
 
-    private void dfs(int current, int n, int[][] computers) {
-        visited[current] = true;
+    private void dfs(int idx, boolean[] visited, int[][] computers) {
+        visited[idx] = true;
 
-        for (int next = 0; next < n; next++) {
-            if (computers[current][next] == 1 && !visited[next]) {
-                dfs(next, n, computers);
+        for (int i = 0; i < computers.length; i++) {
+            if (!visited[i] && computers[idx][i] == 1) {
+                dfs(i, visited, computers);
             }
         }
     }
 
-
-
     public static void main(String[] args) {
         new Q43162().solution(3, new int[][]{{1,1,0}, {1,1,0}, {0,0,1}});
-//        new Q43162().solution(3, new int[][]{{1,1,0}, {1,1,1}, {0,1,1}});
+        new Q43162().solution(3, new int[][]{{1,1,0}, {1,1,1}, {0,1,1}});
     }
 }
