@@ -1,5 +1,9 @@
 package level3;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Queue;
+
 /**
  * <a href="https://school.programmers.co.kr/learn/courses/30/lessons/43163?language=java">...</a>
  * @title 네트워크
@@ -35,46 +39,67 @@ package level3;
  * target인 "cog"는 words 안에 없기 때문에 변환할 수 없습니다.
  */
 public class Q43163 {
-    int answer = Integer.MAX_VALUE;
     public int solution(String begin, String target, String[] words) {
+        // 방문한 words 체크.
         boolean[] visited = new boolean[words.length];
 
-        dfs(begin, target, words, visited, 0);
+        // DFS를 위한 Queue
+        Queue<Node> queue = new ArrayDeque<>();
 
-        return answer == Integer.MAX_VALUE ? 0 : answer;
-    }
+        // 시작 데이터 삽입.
+        queue.offer(new Node(begin, 0));
 
-    private void dfs(String begin, String target, String[] words, boolean[] visited, int count) {
-        if (begin.equals(target)) {
-            answer = count;
-            return;
-        }
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
 
-        for (int j = 0; j < begin.length(); j++) {
+            // node의 변환 word가 target과 같은때 while을 멈추고 count를 return
+            if (node.word.equals(target)) {
+                return node.count;
+            }
+
+            // words를 반복하여 알파벳 하나씩 비교하여 방문한다.
             for (int i = 0; i < words.length; i++) {
+                // 이미 방문한 단어는 pass
                 if (visited[i]) {
                     continue;
                 }
 
-                String switched  = this.switched(begin, words[i], j);
-                if (words[i].equals(switched)) {
+                // 변환이 가능하면, 단어가 있다는 것임으로 카운터를 +1하고, 단어를 삽입 및 방문 등록.
+                if (canConvert(node.word, words[i])) {
+                    queue.offer(new Node(words[i], node.count + 1));
                     visited[i] = true;
-                    dfs(words[i], target, words, visited, count + 1);
-                    visited[i] = false;
                 }
             }
         }
+
+        return 0;
     }
 
-    private String switched(String begin, String target, int idx) {
-        String[] x = begin.split("");
-        String[] y = target.split("");
-        x[idx] = y[idx];
-        return String.join("", x);
+    boolean canConvert(String a, String b) {
+        int diff = 0;
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i) != b.charAt(i)) {
+                diff++;
+            }
+
+            if (diff > 1)
+                return false;
+        }
+        return diff == 1;
+    }
+
+    static class Node {
+        String word;
+        int count;
+
+        Node(String word, int count) {
+            this.word = word;
+            this.count = count;
+        }
     }
 
     public static void main(String[] args) {
         new Q43163().solution("hit", "cog", new String[]{"hot", "dot", "dog", "lot", "log", "cog"});
-        new Q43163().solution("hit", "cog", new String[]{"hot", "dot", "dog", "lot", "log"});
+//        new Q43163().solution("hit", "cog", new String[]{"hot", "dot", "dog", "lot", "log"});
     }
 }
