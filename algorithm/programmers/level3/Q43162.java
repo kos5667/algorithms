@@ -1,10 +1,13 @@
 package level3;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  * <a href="https://school.programmers.co.kr/learn/courses/30/lessons/43162">...</a>
  * @title 네트워크
  * @tag 깊이/너비 우선 탐색(DFS/BFS)
- * @recovery 1
+ * @recovery 2
  *
  * 네트워크란 컴퓨터 상호 간에 정보를 교환할 수 있도록 연결된 형태를 의미합니다.
  * 예를 들어, 컴퓨터 A와 컴퓨터 B가 직접적으로 연결되어있고, 컴퓨터 B와 컴퓨터 C가 직접적으로 연결되어 있을 때 컴퓨터 A와 컴퓨터 C도 간접적으로 연결되어 정보를 교환할 수 있습니다.
@@ -25,27 +28,30 @@ package level3;
  */
 public class Q43162 {
     public int solution(int n, int[][] computers) {
-        int answer = 0;
         boolean[] visited = new boolean[n];
+        int answer = 0;
 
         for (int i = 0; i < n; i++) {
+            // i번재 컴퓨터 방문 체크
             if (!visited[i]) {
                 dfs(i, visited, computers);
                 answer++;
             }
         }
 
-        System.out.println(answer);
         return answer;
     }
 
     private void dfs(int idx, boolean[] visited, int[][] computers) {
+        // idx 번째는 방문했으니
         visited[idx] = true;
 
         for (int i = 0; i < computers.length; i++) {
+            // 방문하지 않았고, 네트워크가 연결되어 있으면, 깊이.
             if (!visited[i] && computers[idx][i] == 1) {
                 dfs(i, visited, computers);
             }
+            // 네트워크가 연결되지 않았으면 종료.
         }
     }
 
