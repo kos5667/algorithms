@@ -12,42 +12,80 @@ import java.util.Queue;
  */
 public class Q87694 {
     public int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
-        Queue<int[]> queue = new ArrayDeque<>();
-//        int[][] polygon = new int[50][50];
-        int[][] polygon = new int[10][10];
+        int[][] map = new int[102][102];
 
-        // 오른쪽, 왼쪽, 위, 아래
-        int[] x = {1, -1, 0, 0};
-        int[] y = {0, 0, 1, -1};
+        // 좌표 2배 확장해서 사각형 그리기
+        for (int[] r : rectangle) {
+            int x1 = r[0] * 2;
+            int y1 = r[1] * 2;
+            int x2 = r[2] * 2;
+            int y2 = r[3] * 2;
 
-        // 다각형 만들기
-        for (int i = 0; i < rectangle.length; i++) {
-            int x1 = rectangle[i][0];
-            int y1 = rectangle[i][1];
-            int x2 = rectangle[i][2];
-            int y2 = rectangle[i][3];
-
-            queue.offer(new int[]{x1, y1});
-            while (!queue.isEmpty()) {
-                int[] poll = queue.poll();
-                int currX = poll[0];
-                int currY = poll[1];
-
-                if (currX != x1 && currY != y1 && currX != x2 && currY != y2) {
-                    polygon[currX][currY] = 0;
-                } else {
-//                    System.out.println(polygon[currX][currY]);
-                    polygon[currX][currY] = 1;
-                }
-
-                if (currX != x2) {
-                    queue.offer(new int[]{currX+1, currY});
-                }
-                if (currY != y2) {
-                    queue.offer(new int[]{currX, currY+1});
+            for (int x = x1; x <= x2; x++) {
+                for (int y = y1; y <= y2; y++) {
+                    // 내부는 무조건 1
+                    if (x > x1 && x < x2 && y > y1 && y < y2) {
+                        map[x][y] = 1;
+                    } else {
+                        // 내부가 아닌 곳만 테두리
+                        if (map[x][y] != 1) {
+                            map[x][y] = 2;
+                        }
+                    }
                 }
             }
         }
+
+        for (int[] m: map) {
+            System.out.println(Arrays.toString(m));
+        }
+
+        return bfs(map, characterX * 2, characterY * 2, itemX * 2, itemY * 2) / 2;
+    }
+
+    private int bfs(int[][] map, int startX, int startY, int targetX, int targetY) {
+        Queue<int[]> queue = new ArrayDeque<>();
+        boolean[][] visited = new boolean[102][102];
+
+        int[] dx = {1, -1, 0, 0};
+        int[] dy = {0, 0, 1, -1};
+
+        queue.offer(new int[]{startX, startY, 0});
+        visited[startX][startY] = true;
+
+        while (!queue.isEmpty()) {
+            int[] curr = queue.poll();
+
+            int x = curr[0];
+            int y = curr[1];
+            int dist = curr[2];
+
+            if (x == targetX && y == targetY) {
+                return dist;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                int nx = x + dx[i];
+                int ny = y + dy[i];
+
+                if (nx < 0 || ny < 0 || nx >= 102 || ny >= 102) {
+                    continue;
+                }
+
+                if (visited[nx][ny]) {
+                    continue;
+                }
+
+                // 테두리만 이동 가능
+                if (map[nx][ny] != 2) {
+                    continue;
+                }
+
+                visited[nx][ny] = true;
+                queue.offer(new int[]{nx, ny, dist + 1});
+            }
+        }
+
         return 0;
     }
 
