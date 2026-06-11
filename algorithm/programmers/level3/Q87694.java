@@ -36,10 +36,6 @@ public class Q87694 {
             }
         }
 
-        for (int[] m: map) {
-            System.out.println(Arrays.toString(m));
-        }
-
         return bfs(map, characterX * 2, characterY * 2, itemX * 2, itemY * 2) / 2;
     }
 
